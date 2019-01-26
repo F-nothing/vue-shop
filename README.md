@@ -1,39 +1,54 @@
-# 基于vue node
+# 前言
+[README in English](README-en.md)
+简介：本人目前高三，初学前端，首次基于vue开发的20多个单页面商城系统，适合vue初学者参考学习，本系统对登陆注册，购物车，vuex，
+## 
+因为是业余时间写的，难免有些bug，还请提出来谢谢哈    53746237@qq.com
+## 技术栈
+vue2.5 + vuex + vue-router + webpack+ES6/7 
+## 项目运行
+npm install 
 
-#### 项目介绍
-{**以下是码云平台说明，您可以替换为您的项目简介**
-码云是开源中国推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用码云实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+npm run dev
+## 关于接口数据
 
-#### 软件架构
-软件架构说明
-
-
-#### 安装教程
-
-1. npm install
-2. npm run serve
-3. npm run build
-
-#### 使用说明
-
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### 参与贡献
-
-1. Fork 本项目
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
+# 说明
+>  如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
+# 效果演示
+[查看demo请戳这里]("http://cangdu.org/elm/")（请用chrome手机模式预览）
+### 移动端扫描下方二维码
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/ewm.png" width="250" height="250"/>
 
 
-#### 码云特技
+# 项目目标功能说明
+- [x] 注册登陆 -- 完成
+- [x] 购物车删除/搜索 -- 完成
+- [x] 商品页 -- 完成
+- [x] 搜索页，分类搜索 -- 完成
+- [ ] 个人中心 -- 等几天
+- [ ] 下单功能 -- 等几天
+- [ ] 添加删除修改收货地址 -- 等几天
+# 总结
 
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+
+# 最终目标
+1.
+
+
+构建一个横跨前后端，移动IOS、Android的完整生态圈。
+
+
+。。。敬请期待  
+
+2019年1月26日 开开心心的
+# 部分截图
+### 商铺筛选页
+<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/food.png" width="365" height="619"/> <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/food.gif" width="365" height="619"/>
+
+
+
+#联系方式
+<p>QQ请扫码(推荐)</p>
+<img src="http://plxafm4ry.bkt.clouddn.com/qrcode_1548479224302.jpg" width="200" height="300">
+<p>微信请扫码</p>
+<img src="http://plxafm4ry.bkt.clouddn.com/mmqrcode1548479364570.png" width="250" height="250">
+
