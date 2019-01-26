@@ -8,8 +8,14 @@ vue2.5 + vuex + vue-router + webpack+ES6/7
 ## 项目运行
 npm install 
 
-npm run dev
+
+npm run serve
+
+npm run build
+
 ## 关于接口数据
+
+接口暂时全部都是自己服务器接口，后端系统会在以后发布的
 
 # 说明
 >  如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
@@ -28,25 +34,19 @@ npm run dev
 - [ ] 下单功能 -- 等几天
 - [ ] 添加删除修改收货地址 -- 等几天
 # 总结
-
-
 # 最终目标
-1.
-
-
 构建一个横跨前后端，移动IOS、Android的完整生态圈。
-
-
 。。。敬请期待  
-
 2019年1月26日 开开心心的
 # 部分截图
-### 商铺筛选页
-<img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/food.png" width="365" height="619"/> <img src="https://github.com/bailicangdu/vue2-elm/blob/master/screenshots/food.gif" width="365" height="619"/>
+### 首页  
+<img src="http://plxafm4ry.bkt.clouddn.com/%E9%A6%96%E9%A1%B5" width="250" height="500"/>
+<img src="http://plxafm4ry.bkt.clouddn.com/%E8%B4%AD%E7%89%A9%E8%BD%A6" width="250" height="500"/> 
+<img src="http://plxafm4ry.bkt.clouddn.com/%E6%88%91%E7%9A%84" width="250" height="500"/> 
+<img src="http://plxafm4ry.bkt.clouddn.com/%E9%A6%96%E9%A1%B5" width="250" height="500"/> 
 
 
-
-#联系方式
+###联系方式
 <p>QQ请扫码(推荐)</p>
 <img src="http://plxafm4ry.bkt.clouddn.com/qrcode_1548479224302.jpg" width="200" height="300">
 <p>微信请扫码</p>
