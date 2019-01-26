@@ -12,27 +12,35 @@
               <div class="namediv"><span class="name">阚东</span></div>
               <span class="signature">生活要有平质感</span>
             </router-link>
-            
+
           </div>
 
         </div>
       </div>
     </div>
+
+
+
     <div class="xlist_group my_cell">
       <div class="rel_container rel_container_has_logis">
         <div class="top_line_box">
-          <div class="my_order_entrance type_unpay iconfont icon-pay">
+
+          <router-link tag="div" to="/My/name"  class="my_order_entrance type_unpay iconfont icon-daifukuan">
             <div class="entrance_text">待付款</div>
-          </div>
-          <div class="my_order_entrance type_unpay iconfont icon-pay">
-            <div class="entrance_text">待付款</div>
-          </div>
-          <div class="my_order_entrance type_unpay iconfont icon-pay">
-            <div class="entrance_text">待付款</div>
-          </div>
-          <div class="my_order_entrance type_unpay iconfont icon-pay">
-            <div class="entrance_text">待付款</div>
-          </div>
+          </router-link>
+
+          <router-link tag="div" to="/My/name" class="my_order_entrance type_unpay iconfont icon-daishouhuo">
+            <div class="entrance_text">待收货</div>
+          </router-link>
+
+          <router-link tag="div" to="/My/name" class="my_order_entrance type_unpay iconfont icon-gongnengjianyi">
+            <div class="entrance_text">退换/售后</div>
+          </router-link>
+
+          <router-link tag="div" to="/My/name" class="my_order_entrance type_unpay iconfont icon-quanbudingdan">
+            <div class="entrance_text">全部订单</div>
+          </router-link>
+
         </div>
         <!-- 物流显示 -->
         <div class="myLogistics">
@@ -40,36 +48,56 @@
         </div>
       </div>
     </div>
+
+
+    <Recommend></Recommend>
+
+
+
+
+
     <Navba></Navba>
     <transition name="router-fad">
         <router-view ></router-view>
     </transition>
   </div>
-  
 
-  
+
+
 </template>
 <script>
- import myheader from './header.vue'
- import Navba from "../Navbar.vue"
+
+  import Recommend from '../../components/Home/Sub/Recommend'
+   import myheader from './header.vue'
+   import Navba from "../Navbar.vue"
  export default {
     name: "",
     components:{
       myheader,
-      Navba
+      Navba,
+      Recommend
+
+    },
+
+    //获取当前登陆信息
+    computed:{
+
 
     }
+
+
   }
 </script>
 
 <style lang='stylus' type="text/stylus" scoped>
-@import url(//at.alicdn.com/t/font_908836_nu64hp9k9ug.css);
+@import url(//at.alicdn.com/t/font_848898_a6x0h6689rd.css);
 header
 .DLinearLayout
     height 100px;
     background-color: #fff;
     height: 100px;
     padding:0 20px;
+
     .user_info
       height: 100px;
       position: relative;
@@ -105,6 +133,7 @@ header
       display: flex;
       position: relative;
       width 100%
+
       .my_order_entrance
         width 100px
         height 60px
@@ -114,6 +143,7 @@ header
         .entrance_text
           color #85878F
           font-size 14px
+
 .router-fad-enter-active, .router-fade-leave-active {
 	transition: opacity 1s;
 	}
@@ -123,7 +153,7 @@ header
 
 
 
-        
+
 
 
 

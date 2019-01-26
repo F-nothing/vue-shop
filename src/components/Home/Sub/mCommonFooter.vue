@@ -23,23 +23,21 @@
             </ul>
 
         </div>
-        <div class="common-copyright">Copyright © 2004-2018 京东JD.com 版权所有</div>
+        <div class="common-copyright">Copyright © 2004-2018 易云科技 版权所有</div>
     </div>
 </template>
 <script>
 export default {
-    
+
 }
 </script>
 <style lang='stylus'>
 .mCommonFooter
-    
-   
     padding-bottom: 50px;
     padding-top 20px
     width 100%;
     .common-links
-        width 100%  
+        width 100%
         padding 10px 0
         font-size 14px
         .common-lin
@@ -54,29 +52,37 @@ export default {
                 text-overflow: ellipsis;
                 padding: 0 5px;
                 box-sizing: border-box;
+
                 a
                     color: #848689;
+                    text-align center
+                    img
+                        margin 0 auto !important
+
+
     .common-icons
         border-bottom: 1px solid #e5e5e5;
         width 100%
+        padding 10px 0
         ul
             overflow hidden
             li
                 float: left;
                 text-align: center;
                 width: 33.3333%;
-                
+                margin 0 auto
                 a
                     display: block;
                     img
-                        height 50px 
+                        height 50px
                         width: 40%;
+                        margin 0 auto !important
 
     .common-copyright
         font-size 12px;
         text-align center;
         color #666;
-        padding 10px 0
+        padding 20px 0
 
 
 

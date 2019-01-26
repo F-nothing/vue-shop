@@ -1,55 +1,37 @@
 <template>
     <div>
-        <!-- 首页搜索  barren -->
+        <!--顶部搜索栏-->
         <Heade></Heade>
-        <!-- 导航菜单 -->
+        <!--菜单-->
         <Floor></Floor>
-
+        <!--头条通知-->
         <Toutiao></Toutiao>
-        <!-- <F></F> -->
+        <!--秒杀-->
+        <!--我的足迹-->
+        <!--为你推荐-->
         <Recommend></Recommend>
-        
-
-
+        <!--底部版权-->
         <foter></foter>
-
-        <Navba></Navba>
-a
-        <router-link to="/">sas</router-link>
-
-        
-
-
-
-       
+        <!--底部导航-start-->
+        <Navbar></Navbar>
     </div>
 </template>
 <script>
-
-    import Heade from './header'
-    import Floor from './floor.vue'
-    import F from './foott.vue'
-    import Toutiao from './Toutiao.vue'
-    import foter from './mCommonFooter.vue'
-    import Recommend from './Recommend.vue'
-
-    import Navba from "../Navbar.vue"
-    
+    import Heade from './Sub/header'
+    import Floor from './Sub/floor.vue'
+    import Toutiao from './Sub/Toutiao.vue'
+    import Recommend from './Sub/Recommend.vue'
+    import foter from './Sub/mCommonFooter.vue'
+    import Navbar from "../Navbar.vue"
     export default {
         name: "Home",
         components:{
             Heade,
             Floor,
             Toutiao,
-            F,
             foter,
             Recommend,
-            Navba
+            Navbar
         }
-
     }
 </script>
-
-<style scoped>
-
-</style>

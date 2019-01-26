@@ -1,7 +1,14 @@
 <template>
   <div class="Navbar">
-   <router-link v-for="(item,index) of nav" :key="index"  class="tab" :class="navIndex===index ? 'item-cn-active':''"  :to=item.to  @click.native="routerLink(index)" >
-      <span class="iconfont"  :class="item.iconfont"></span>
+   <router-link
+           v-for="(item,index) of nav"
+           :key="index"
+           class="tab"
+           :class="navIndex===index ? 'item-cn-active':''"
+           :to=item.to
+           @click.native="routerLink(index)" >
+      <span class="iconfont"
+            :class="item.iconfont"></span>
       <p class="text">{{item.title}}</p>
     </router-link>
   </div>
@@ -14,7 +21,8 @@
         navIndex: 0,
         nav: [
           {title: '首页',  iconfont: 'icon-home',to:'/'},
-          {title: '登陆',  iconfont: 'icon-more',to:'/logo'},
+            {title: '分类',  iconfont: 'icon-more',to:'/Class'},
+          // {title: '登陆',  iconfont: 'icon-more',to:'/logo'},
           {title: '购物车', iconfont: 'icon-cart_light-copy-copy',to:'/Chea'},
           {title: '我的',  iconfont: 'icon-my_light',to:'/My'},
         ],

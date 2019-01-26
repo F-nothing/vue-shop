@@ -58,17 +58,12 @@
 
                 </label>
                 <div class="seperator-wrap"><hr class="seperator"></div>
-                
+
             </div>
             <div class="order-orderPay buy-single-row"></div>
             <div class="line">
                 <div>共1件,合计￥19.80</div>
             </div>
-
-
-
-
-
             <div class="order-submitOrder">
                 <div class="mui-flex align-center">
                     <div class="cell realPay">
@@ -83,8 +78,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </template>
@@ -99,7 +92,6 @@ export default {
         title:'我的订单'
       }
     }
-
 }
 </script>
 <style lang='stylus'>
@@ -119,7 +111,7 @@ export default {
     .order-item
         background-color: #f5f5f5;
         .order-itemInfo
-            padding: 12px;
+            padding: 1~2px;
             display flex;
             .item-pic
                 .img-cell
@@ -127,25 +119,25 @@ export default {
                     height: 92px;
                     flex: 1;
                     margin-right: 9px;
-                    img 
+                    img
                         width: 92px;
-                        height: 92px; 
+                        height: 92px;
             .content
                 .title
                     color: #666;
                 .sku-info
-                    font-size: 12px;  
-                    margin-top 5px  
+                    font-size: 12px;
+                    margin-top 5px
                 .icon-main
-                    font-size: 12px;   
+                    font-size: 12px;
                     color: #f50;
-                    margin-top 5px 
+                    margin-top 5px
             .item-pay
                 margin-left 10px
                 .price
                     color: #f50;
                     font-size: 16px;
-                    font-weight: bolder;  
+                    font-weight: bolder;
     .order-memo
         background-color: #fff;
 
@@ -155,13 +147,13 @@ export default {
                 line-height: 41px;
                 padding 0 10px
                 display flex
-                
+
             .seperator-wrap
                 -webkit-box-flex: 0 !important;
                 -webkit-flex: none !important;
                 flex none
                 .seperator
-                   
+
                     border-bottom: 1px solid rgba(0,0,0,.1);
                     border: none;
             .cell
@@ -169,12 +161,12 @@ export default {
                 text-indent: 0;
                 background-color: #fff;
                 line-height: 41px;
-                
+
                 input
                     border: none;
                     width: 100%;
                     flex 1
-    .line       
+    .line
         background-color: #fff;
         color: #999;
         padding: 9px;
@@ -182,30 +174,29 @@ export default {
             text-align: right;
             color: #666;
             font-weight: bolder;
-    .order-submitOrder               
+    .order-submitOrder
         position fixed
         left: 0;
         bottom: 0;
         width: 100%;
         background-color: #fff;
-        
         .align-center
             display block
             display flex
             -webkit-align-items: center;
-            
+
             .realPay
                 text-align: right;
                 margin-right: 9px;
                 flex: 1;
-                
+
             .action
                 -webkit-box-flex: 0!important;
                 -webkit-flex: none!important;
                 background-color: #f50;
-                color: #fff;
+                color: red;
                 padding: 1.1em 1.4em;
 
-                        
-        
+
+
 </style>

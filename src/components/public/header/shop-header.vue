@@ -1,10 +1,12 @@
-/**header组件*/
 <template>
-    <section class="cname">
-        <div class="m_header_bar">
-            <div @click="$router.history.go(-1)" class="m_header_bar iconfont icon-xiala-copy" >
-            </div>
+    <section class="cname" >
+        <div class="m_header_bar" style="display: flex;">
+            <div @click="$router.history.go(-1)" class="m_header_bar iconfont icon-xiala-copy" ></div>
             <div class="m_header_bar_title">{{titlee}}</div>
+            <!--<div style="width: 100%">-->
+                <!--<slot/>-->
+            <!--</div>-->
+
             <div class="m_header_bar iconfont icon-more">
             </div>
         </div>
@@ -17,6 +19,7 @@ export default {
             type:String,
             default:"",
         },
+        background:''
         //接受路由地址
     }
 }
@@ -34,19 +37,17 @@ export default {
             height 44px
             line-height 44px
             text-align: center;
-            font-size 18px
+            font-size 28px
         .m_header_bar_title
             height: 44px;
-            line-height: 44px; 
+            line-height: 44px;
             font-size: 18px;
             color: #333;
-
             text-align: center;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-
-            flex: 1;    
+            flex: 1;
 </style>
 
 
