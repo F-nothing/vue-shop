@@ -8,7 +8,6 @@ vue2.5 + vuex + vue-router + webpack+ES6/7
 ## 项目运行
 npm install 
 
-
 npm run serve
 
 npm run build
@@ -48,7 +47,5 @@ npm run build
 
 ###联系方式
 <p>QQ请扫码(推荐)</p>
-<img src="http://plxafm4ry.bkt.clouddn.com/qrcode_1548479224302.jpg" width="200" height="300">
-<p>微信请扫码</p>
-<img src="http://plxafm4ry.bkt.clouddn.com/mmqrcode1548479364570.png" width="250" height="250">
+<img src="http://plxafm4ry.bkt.clouddn.com/qrcode_1548479224302.jpg" width="200" height="300"><p>微信请扫码</p><img src="http://plxafm4ry.bkt.clouddn.com/mmqrcode1548479364570.png" width="250" height="250">
 
