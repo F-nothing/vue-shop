@@ -19,7 +19,7 @@
 
                             <!--<img :src=data.shop_img>-->
                             <!--<img v-lazy="data.shop_img">-->
-                            <img v-lazy="data.shop_img" @error="imgError(data)" @load="successLoadImg">
+                            <img v-lazy="data.shop_img" @error="imgError(data)">
 
 
 

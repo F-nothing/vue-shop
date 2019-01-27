@@ -1,6 +1,5 @@
 <template>
-    <div class="flool">
-
+    <div class="body_wrap">
         <div style="border-bottom: 1px solid #E5E5E5">
             <heade>
                 <van-search
@@ -10,48 +9,34 @@
                 />
             </heade>
         </div>
+        <div class="categoryBody" >
 
 
-
-        <div class="fooll" >
-
-
-            <div class="fl category1" style="background-color: #f8f8f8">
-                <ul v-for="item in data">
-                    <li @click="list(item)">{{item.cat_name}}</li>
-                </ul>
+            <div class="rootList category1">
+                <div class="overflow: hidden; height: 719px;">
+                    <ul v-for="item in data">
+                        <li @click="list(item)">{{item.cat_name}}</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="fr category2" style="background-color: #fff" >
-
-                    <div style="margin: 7px 7px 0;" class="tp-category-third-promotion">
-                        <img src="//img11.360buyimg.com/mcoss/jfs/t14026/352/1775685408/39507/1dfb9518/5a28efe9N353f6584.jpg">
-                    </div>
-
-
-                    <div class="tp-class-list" style="margin: 19px 7px 0;overflow:hidden;">
-                        <h4 style="font-size: 14px;
+                    <div class="jd-category-third-promotion">
+                        <div class="tp-class-list" style="margin: 19px 7px 0;overflow:hidden;">
+                            <h4 style="font-size: 14px;
     color: #333;">热门分类</h4>
 
-                        <ul style="    padding: 7px 10px 0;">
-                            <li @click="no(opp)"  style="width: 32.8%;float: left;text-align: center;"   v-for="opp in op">
-                                <img style="margin: 0 auto;width: 70px;
+                            <ul style="    padding: 7px 10px 0;">
+                                <li @click="no(opp)"  style="width: 32.8%;float: left;text-align: center;"   v-for="opp in op">
+                                    <img style="margin: 0 auto;width: 70px;
     height: 70px;"  src="//img30.360buyimg.com/focus/s140x140_jfs/t1/1446/14/631/8500/5b9237e5E0d1f9e16/b1a627b92323b5ed.png">
-                                <div style="color: #333;">{{opp.cat_name}}</div>
-                            </li>
-                        </ul>
+                                    <div style="color: #333;">{{opp.cat_name}}</div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
             </div>
-
-
-
         </div>
-
-
-
-
-
-
     </div>
 </template>
 <script>
@@ -134,29 +119,26 @@
 </script>
 
 <style lang="stylus"  scoped>
-
-    .search
-        .van-search
-            background-color red
-
-
-    .fooll
-        display flex
-        height: auto;
-        .fl
-            background-color: #fff;
-            width 80px
-            overflow: scroll;
-            li
+    .body_wrap
+        background-color #FFFFFF
+        height: 100vh;
+        .search
+            .van-search
+                background-color red
+        .categoryBody
+            display flex
+            .rootList
                 width 80px
-                height: 46px;
-                line-height: 46px;
-                text-align: center;
+                padding 0 10px
+                li
+                    width 80px
+                    height: 46px;
+                    line-height: 46px;
+                    text-align: center;
+            .fr
+                flex 1
+                padding 0 10px
 
-
-
-    .fr
-            flex 1
 
 
 </style>

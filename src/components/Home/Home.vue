@@ -12,8 +12,12 @@
         <Recommend></Recommend>
         <!--底部版权-->
         <foter></foter>
+
+
         <!--底部导航-start-->
         <Navbar></Navbar>
+
+
     </div>
 </template>
 <script>
@@ -32,6 +36,11 @@
             foter,
             Recommend,
             Navbar
-        }
+        },
     }
+
+
+
+
+
 </script>

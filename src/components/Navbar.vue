@@ -4,35 +4,60 @@
            v-for="(item,index) of nav"
            :key="index"
            class="tab"
-           :class="navIndex===index ? 'item-cn-active':''"
+           :class="item.class ? 'item-cn-active':''"
            :to=item.to
            @click.native="routerLink(index)" >
       <span class="iconfont"
-            :class="item.iconfont"></span>
+            :class="item.iconfont">
+      </span>
       <p class="text">{{item.title}}</p>
     </router-link>
   </div>
 </template>
 <script>
   export default {
-    name: "",
-    data(){
-     return{
-        navIndex: 0,
-        nav: [
-          {title: '首页',  iconfont: 'icon-home',to:'/'},
-            {title: '分类',  iconfont: 'icon-more',to:'/Class'},
-          // {title: '登陆',  iconfont: 'icon-more',to:'/logo'},
-          {title: '购物车', iconfont: 'icon-cart_light-copy-copy',to:'/Chea'},
-          {title: '我的',  iconfont: 'icon-my_light',to:'/My'},
-        ],
+      name: "",
+
+      data(){
+         return{
+            navIndex: 0,
+            nav: [
+                {title: '首页',  iconfont: 'icon-home',to:'/',class:false,},
+                {title: '分类',  iconfont: 'icon-more',to:'/Class',class:false},
+                {title: '购物车', iconfont: 'icon-cart_light-copy-copy',to:'/Chea',class:false},
+                {title: '我的',  iconfont: 'icon-my_light',to:'/My',class:false},
+            ],
+         }
+      },
+
+      mounted(){
+          //获取当前url  给navbar设置索引
+          //代码有点垃圾，多多包涵，哈哈
+          //加载后，获取当前url对应nav数组里面的索引，设置为true
+          var path = this.$route.path;
+          switch (path) {
+              case this.nav[0].to:
+                  this.$store.state.Navbar = 0;
+                  break;
+              case this.nav[1].to:
+                  this.$store.state.Navbar = 1;
+                  break;
+              case this.nav[2].to:
+                  this.$store.state.Navbar = 2;
+                  break;
+              case this.nav[3].to:
+                  this.$store.state.Navbar = 3;
+                  break;
+          }
+
+          var isSelece = this.$store.state.Navbar;
+          this.nav[isSelece].class = true
+      },
+      methods:{
+          routerLink(index) {
+              this.$store.state.Navbar = index;
+          }
       }
-    },
-    methods:{
-      routerLink(index) {
-        this.navIndex = index;
-      }
-    }
   }
 </script>
 <style lang="stylus" type="text/stylus" scoped>

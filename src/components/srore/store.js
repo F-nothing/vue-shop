@@ -7,28 +7,17 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state:{
         count:0,
-
-        // token: '',
-
         username: '',
-
-        token : localStorage.getItem("login")
-
-
-        // token: window.localStorage.getItem("key")
-
-
+        token : localStorage.getItem("login"),
+        Navbar:'0', //当前导航位置
     },
-
-
-
 
     mutations:{
         updateCount(state,num){
             state.count = num
         }
     },
-})
+});
 
 
 

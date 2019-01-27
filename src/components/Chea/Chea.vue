@@ -2,8 +2,8 @@
     <div class="box">
         <mheade :titlee="title"></mheade>
          <!--购物车商品列表容器 #list-->
-        <div class="cmdtylist" style="height: 100vh">
-            <div class="section"  v-for="item in shop" :key="item.id">
+        <div class="cmdtylist">
+            <div class="section"  v-for="item in shopdata" :key="item.id">
                 <!--<div class="head_wrap">-->
                     <!--<div class="headd shopheadJs selected">-->
                         <!--<i class="icon_select"></i>-->
@@ -28,7 +28,7 @@
                                     <div class="mun-wap">
                                         <span  class="minus disabled iconfont icon-jiajianchengchu-1"></span>
                                         <div class="input_wrap">
-                                            <input class="num" type="number"  v-model="item.count" >
+                                            <input class="num" type="number"  v-model="item.goods_num" >
                                         </div>
                                         <span class="plus minus  iconfont icon-jiajianchengchu-2"></span>
                                     </div>
@@ -59,7 +59,6 @@
     </div>
 
 
-        <Navbar></Navbar>
     </div>
 </template>
 <script>
@@ -76,43 +75,59 @@ export default {
         return{
             is:false,
             title:'购物车',
+
+
             shopdata:[],//购物车原始数据
-            shop:[]  //购物车数据
+
+            shop:[],  //购物车对应商品数据，
+
+            shoplist:[]//购物车数组
         }
     },
 
     created:function () {
         this.chedfind()
     },
-
-
     methods:{
         //获取购物车数据
         chedfind(){
             chedfind().then((resolve)=>{
                 var datalist = resolve.docs;
-                //获取每条数据对应的商品id
-
                 this.shopdata = datalist;
 
 
-                for (var i= 0 ; i<datalist.length;i++){
-                    //把每条商品id 添加上shop数组
-                    // this.shop.push(datalist[i].goods_id);
-                    //根据商品id获取对应商品
-                    shoplist_id({id:datalist[i].goods_id}).then((resolve)=>{
-                        //获取到商品数据添加到购物车数据
-                        this.shop.push(resolve.docs[0])
 
 
-                    })
+                // //获取每条数据对应的商品id
+                // for (var i= 0 ; i<datalist.length;i++){
+                //     //根据商品id获取对应商品
+                //     shoplist_id({id:datalist[i].goods_id}).then((resolve)=>{
+                //         ///购物车对应商品数据，
+                //         this.shop.push(resolve.docs[0])
+                //     })
+                // }
+                //
+                // console.log(this.shopdata)
+                //
+                //
+                // console.log(this.shop)
 
-                }
+
+
 
             });
+
+
+            //把获取的商品数据和购物车数据拼接成购物车数组
+
+
+
+
+
+
+
+
         },
-
-
 
 
         //确定勾选
@@ -126,26 +141,10 @@ export default {
 
 
 
-            // Checklist().then((resolve=>{
-            //
-            //
-            // }))
-
         }
 
 
-
-
-
     }
-
-
-
-
-
-
-
-
 }
 </script>
 <style lang='stylus' scoped>
@@ -318,7 +317,7 @@ export default {
         left 0
         right 0
         margin 0 auto
-        bottom: 51px;
+        bottom: 0;
         height: 50px;
         background: hsla(0,0%,100%,.95);
         color: #333;

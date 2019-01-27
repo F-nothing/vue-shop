@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+
+
+
 import store from '../components/srore/store'
+
+const App =()=>import('../App');
 
 const Class =()=>import('../components/Class/index')//商品分类
 
@@ -9,7 +15,10 @@ const List =()=>import('../components/Class/list')
 
 
 
-const Home =()=>import('../components/Home/Home.vue')
+const Home =()=>import('../components/Home/Home.vue'); //首页
+
+
+
 
 
 const demo =()=>import('../components/Chea/demo.vue')
@@ -37,27 +46,98 @@ const Search =()=>import('../components/Class/Search')
 // import { from } from 'array-flatten';
 Vue.use(Router);
 const router = new Router({
+
   mode: 'history',
   routes:[
-    /**
-     * 个人中心
-     */
-    {
-      path:'/p',
-      component:p,
-      meta:{
-        title:'个人中心'
-      }
-    },
-    {
-      name:'My',
-      path:'/My',
-      component:My,
-      meta: {
-        title:'我的',
-        requiresAuth: true
-      }
-    },
+      {
+          path:'/',
+          component:App, //顶级路由
+          children:[     //二级路由
+              //当路由为空时跳转首页
+              {
+                path:'',
+                component:Home
+              },
+              //商品分类
+              {
+                path:'Class',
+                component:Class
+
+              },
+              //购物车页面
+              {
+                path:'Chea',
+                component:Chea,
+                meta: {
+                  requiresAuth: true,
+                  title:'购物车'
+                }
+              },
+              //个人中心
+              {
+                name:'My',
+                path:'/My',
+                component:My,
+                meta: {
+                  title:'我的',
+                  requiresAuth: true
+                },
+                children:[
+
+
+                ]
+              },
+
+
+
+
+              {
+                path:'My/name',
+                component:name,
+                meta:{
+                  title:'个人中心'
+                },
+                children:[
+                  {
+                    path:'address',
+                    component:o
+                  },
+
+                  {
+                    path:'',
+                    component:o,
+                  },
+                  {
+                    path:'/My/name/oo',
+                    component:oo,
+                  },
+                  {
+                    path:'/My/name/ooo',
+                    component:ooo,
+                  },
+                  {
+                    path:'/My/name/oooo',
+                    component:oooo,
+                  }
+                ]
+              },
+
+
+
+
+
+
+
+          ]
+
+
+      },
+
+
+
+
+
+
     {
       path:'/Search',
       component:Search
@@ -67,50 +147,12 @@ const router = new Router({
 
 
 
-
-
-      // 首页
-    {
-      path:'/My/name',
-      component:name,
-      meta:{
-        title:'个人中心'
-      },
-      children:[
-        {
-          path:'',
-          component:o,
-        },
-        {
-          path:'/My/name/oo',
-          component:oo,
-        },
-        {
-          path:'/My/name/ooo',
-          component:ooo,
-        },
-        {
-          path:'/My/name/oooo',
-          component:oooo,
-        }
-      ]
-    },
-
-
     {
       path:'/demo',
       component:demo
     },
 
-    {
-      path:'/',
-      component:Home,
-      name:'/',
-      meta: {
-        requiresAuth: true,
-        title:'京东商城'
-      }
-    },
+
 
 
 
@@ -151,18 +193,8 @@ const router = new Router({
       }
     },
 
-    {
-      path:'/Chea',
-      component:Chea,
-      meta: {
-        requiresAuth: true,
-        title:'购物车'
-      }
-    },
-    {
-      path:'/Class',
-      component:Class,
-    }
+
+
   ],
 });
 
@@ -174,6 +206,7 @@ router.beforeEach((to,from,next)=>{
     document.title = to.meta.title
   }
   next();
+
 
   if (to.meta.requiresAuth) {
     if (token) {
@@ -188,12 +221,21 @@ router.beforeEach((to,from,next)=>{
     next(); //如果无需token,那么随它去吧
   }
 
+  if(to.path == '/logo'){
+    if (token) {
+      next({
+        path: '/'
+      })
+    }else {
+      next()
+    }
+
+  }
+
 
 
 
 
 
 });
-
-
 export default router
