@@ -7,6 +7,8 @@
         <!--头条通知-->
         <Toutiao></Toutiao>
         <!--秒杀-->
+        <Spike></Spike>
+
         <!--我的足迹-->
         <!--为你推荐-->
         <Recommend></Recommend>
@@ -25,6 +27,7 @@
     import Floor from './Sub/floor.vue'
     import Toutiao from './Sub/Toutiao.vue'
     import Recommend from './Sub/Recommend.vue'
+    import Spike from './Sub/Spike.vue'
     import foter from './Sub/mCommonFooter.vue'
     import Navbar from "../Navbar.vue"
     export default {
@@ -35,6 +38,7 @@
             Toutiao,
             foter,
             Recommend,
+            Spike,
             Navbar
         },
     }

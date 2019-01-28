@@ -5,8 +5,8 @@ module.exports={
         proxy: {
             // 本地接口
             '/api': {
-                // target: 'http://localhost:3089/v1',
-                target: 'http://118.89.36.145:3089/v1',
+                target: 'http://localhost:3089/v1',
+                // target: 'http://118.89.36.145:3089/v1',服务器地址
                 changeOrigin: true,
                 ws: true,
                 pathRewrite: {
@@ -18,6 +18,9 @@ module.exports={
 
 
     },
+
+
+    
 
     // productionSourceMap: false
 

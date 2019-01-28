@@ -18,36 +18,44 @@ export default {
         return{
             item:[
                     {
-                        img:"http://demo5.tp-shop.cn/template/mobile/rainbow/static/images/icon_03.png",
-                        title:"爆款手机1",
+                        img:"//m.360buyimg.com/mobilecms/s120x120_jfs/t16828/63/2653634926/5662/d18f6fa1/5b03b779N5c0b196f.png.webp",
+                        title:"京东超市",
                     },
                     {
-                        img:"http://demo5.tp-shop.cn/template/mobile/rainbow/static/images/icon_03.png",
-                        title:"爆款手机2",
+                        img:"//m.360buyimg.com/mobilecms/s120x120_jfs/t1/29256/16/1420/4265/5c120d2aE83ef9fd4/ca89a8718704215c.png.webp",
+                        title:"海囤全球",
                     },
                     {
-                        img:"http://demo5.tp-shop.cn/template/mobile/rainbow/static/images/icon_03.png",
-                        title:"爆款手机3",
+                        img:"//m.360buyimg.com/mobilecms/s120x120_jfs/t1/17169/3/4127/4611/5c2f35cfEd87b0dd5/65c0cdc1362635fc.png.webp",
+                        title:"京东服饰",
                     },
                     {
-                        img:"http://demo5.tp-shop.cn/template/mobile/rainbow/static/images/icon_03.png",
-                        title:"爆款手机4",
+                        img:"//m.360buyimg.com/mobilecms/s120x120_jfs/t1/27962/13/1445/4620/5c120b24Edd8c34fe/43ea8051bc50d939.png.webp",
+                        title:"京东生鲜",
                     },
                     {
-                        img:"http://demo5.tp-shop.cn/template/mobile/rainbow/static/images/icon_03.png",
-                        title:"爆款手机5",
+                        img:"//m.360buyimg.com/mobilecms/s120x120_jfs/t1/7068/29/8987/5605/5c120da2Ecae1cc3a/016033c7ef3e0c6c.png.webp",
+                        title:"京东旅行",
                     },
                     {
-                        img:"http://demo5.tp-shop.cn/template/mobile/rainbow/static/images/icon_03.png",
-                        title:"爆款手机6",
+                        img:"//m.360buyimg.com/mobilecms/s120x120_jfs/t18454/342/2607665324/6406/273daced/5b03b74eN3541598d.png.webp",
+                        title:"充值缴费",
                     },
                     {
-                        img:"http://demo5.tp-shop.cn/template/mobile/rainbow/static/images/icon_03.png",
-                        title:"爆款手机7",
+                        img:"//m.360buyimg.com/mobilecms/s120x120_jfs/t21481/263/412160889/15938/4246b4f8/5b0cea29N8fb2865f.png.webp",
+                        title:"9.9元拼",
                     },
                     {
-                        img:"http://demo5.tp-shop.cn/template/mobile/rainbow/static/images/icon_03.png",
-                        title:"爆款手机8",
+                        img:"//m.360buyimg.com/mobilecms/s120x120_jfs/t1/18592/37/4041/9229/5c2d8e3aE7facf7b7/bd549f4712f4886c.png.webp",
+                        title:"领券",
+                    },
+                    {
+                        img:"//m.360buyimg.com/mobilecms/s120x120_jfs/t16828/63/2653634926/5662/d18f6fa1/5b03b779N5c0b196f.png.webp",
+                        title:"赚钱",
+                    },
+                    {
+                        img:"//m.360buyimg.com/mobilecms/s120x120_jfs/t21481/263/412160889/15938/4246b4f8/5b0cea29N8fb2865f.png.webp",
+                        title:"全部",
                     }
                 ]
 
@@ -59,11 +67,12 @@ export default {
 <style lang='stylus'>
 .floor
     padding 10px 0
+    background-color #FFFFFF
     .position-r
         overflow: auto;
         ul
             li
-                width 25%
+                width 20%
                 float left
                 a
                     img
@@ -71,11 +80,12 @@ export default {
                         display block
                         margin 0 auto
                     .title
-                        font-size 14px
+                        font-size 12px
                         text-align center
+                        color: #666;
                         height 20px
                         line-height 20px
-                        color: #333;
+                        margin-top: 5px;
                         overflow: hidden;
 </style>
 

@@ -40,6 +40,21 @@ export const chedfind = data =>post('/goods/chedfind',data);
 export const Checklist = data =>post('/goods/Checklist',data);
 
 
+export const Settlement = data =>post('/goods/Settlement',data);
+/**
+ * 获取商品价格
+ */
+export const CheckPrice = data =>post('/goods/CheckPrice',data);
+
+// /**
+//  * 获取收货地址
+//  */
+// export const CheckPrice = data =>post('/goods/CheckPrice',data);
+// /**
+//  * 编辑收货地址
+//  */
+// export const CheckPrice = data =>post('/goods/CheckPrice',data);
+
 
 /**
  *登陆接口

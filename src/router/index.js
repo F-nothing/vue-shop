@@ -4,42 +4,47 @@ import Router from 'vue-router'
 
 
 
-import store from '../components/srore/store'
-
-const App =()=>import('../App');
-
-const Class =()=>import('../components/Class/index')//商品分类
+import store from '@/components/srore/store'
 
 
-const List =()=>import('../components/Class/list')
+const App =()=>import('@/App');
+
+const Class =()=>import('@/components/Class/index')//商品分类
 
 
-
-const Home =()=>import('../components/Home/Home.vue'); //首页
+const List =()=>import('@/components/Class/list')
 
 
 
+const Home =()=>import('@/components/Home/Home.vue'); //首页
 
 
-const demo =()=>import('../components/Chea/demo.vue')
 
 
-const Demoo =()=>import('../components/Logo')
-const placeorder =()=>import('../components/Class/shopPlaceorder')//提交订单
-const  pay=()=>import('../components/Class/pay')
-const  commodity=()=>import('../components/Class/details.vue')//商品页面
+const demo =()=>import('@/components/Chea/demo.vue')
 
-const My =()=>import('../components/My/my')
-const o =()=>import('../components/My/Order/o.vue')
-const oo =()=>import('../components/My/Order/oo.vue')
-const ooo =()=>import('../components/My/Order/ooo.vue')
-const oooo =()=>import('../components/My/Order/oooo.vue')
-const p =()=>import('../components/My/Order.vue')
-const name =()=>import('../components/My/header.vue')
-const Chea =()=>import('../components/Chea/index')
+const Demoo =()=>import('@/components/Logo')
+const placeorder =()=>import('@/components/Class/shopPlaceorder')//提交订单
+const  pay=()=>import('@/components/Class/pay')
+const  commodity=()=>import('@/components/Class/details.vue')//商品页面
+
+const My =()=>import('@/components/My/my')
+
+const address =()=>import('@/components/My/address')
+const Addressadd =()=>import('@/components/My/Addressadd')
+
+const o =()=>import('@/components/My/Order/o.vue')
+const oo =()=>import('@/components/My/Order/oo.vue')
+const ooo =()=>import('@/components/My/Order/ooo.vue')
+const oooo =()=>import('@/components/My/Order/oooo.vue')
+const p =()=>import('@/components/My/Order.vue')
+const name =()=>import('@/components/My/header.vue')
+const Chea =()=>import('@/components/Chea/index')
 
 
-const Search =()=>import('../components/Class/Search')
+
+
+const Search =()=>import('@/components/Class/Search')
 
 
 
@@ -82,11 +87,16 @@ const router = new Router({
                   title:'我的',
                   requiresAuth: true
                 },
-                children:[
-
-
-                ]
               },
+            {
+              path:'/address',
+              component:address,
+            },
+            {
+              path:'/Addressadd',
+              component:Addressadd,
+            },
+
 
 
 

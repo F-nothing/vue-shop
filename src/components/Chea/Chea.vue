@@ -14,15 +14,17 @@
                 <div class="item">
                     <div class="goods">
                         <!--勾选-->
-                        <i class="icon_select" @click="Checklist(item)"></i>
-                        <img class="img" :src="item.shop_img">
+                        <i @click="Checklist(item)" :class="item.selected == 1 ? 'item-cn-active':'icon_select'"></i>
+
+
+                        <img class="img" :src="item.goods_id.shop_img">
                         <div class="content" >
                             <router-link tag="div" to="/commodity" class="name">
-                                <span class="proNameJs">{{item.shop_name}}</span>
+                                <span class="proNameJs">{{item.goods_id.shop_name}}</span>
                             </router-link>
                                 <!--<div class="sku">2kg/件，蓝盘 皮带</div>-->
                             <div class="gooda-line">
-                                <p class="picae"><em class="int">{{item.checked}}</em></p>
+                                <p class="picae"><em class="int">{{item.goods_id.checked}}</em></p>
                                     <!-- 单价部分 -->
                                 <div class="num_and_more">
                                     <div class="mun-wap">
@@ -41,20 +43,20 @@
         </div>
         <!-- 购物车商品结算容器 -->
         <div class="fixbare">
-            <i class="icon_select iconfont icon-gouxuan">
+            <i  :class="selected == 1 ? 'item-cn-active' : 'icongouxuan'" @click="AllCheck()">
                 全选
             </i>
         <div class="total">
             <p>
                 总计：
-                <strong>￥{{  }}</strong>
+                <strong>￥{{Pricedata.Price}}</strong>
                 <small>
-                    <span id="totalBackMoney">总额¥{{  }}立减¥0.00</span>
+                    <span id="totalBackMoney">总额¥{{Pricedata.Price}}立减¥0.00</span>
                 </small>
             </p>
-            <router-link to="/placeorder" tag="div" class="buy buyJs">去结算
+            <div class="buy buyJs" @click="Settlementcchlik()">去结算
                 <em>{{}}件</em>
-            </router-link>
+            </div>
         </div>
     </div>
 
@@ -64,84 +66,68 @@
 <script>
 import mheade from '../public/header/shop-header'
 import Navbar from '../Navbar'
-import {chedfind,shoplist_id,Checklist} from '../../api/apilist'
+import {chedfind,shoplist_id,Checklist,CheckPrice,Settlement} from '../../api/apilist'
 export default {
     components:{
         mheade,
         Navbar
-
     },
     data(){
         return{
             is:false,
             title:'购物车',
-
-
             shopdata:[],//购物车原始数据
-
-            shop:[],  //购物车对应商品数据，
-
-            shoplist:[]//购物车数组
+            Pricedata:{
+                Price:''
+            },
+            selected : 1
         }
     },
-
     created:function () {
-        this.chedfind()
+        this.chedfind();
+        this.CheckPrice()
     },
     methods:{
         //获取购物车数据
-        chedfind(){
-            chedfind().then((resolve)=>{
-                var datalist = resolve.docs;
-                this.shopdata = datalist;
-
-
-
-
-                // //获取每条数据对应的商品id
-                // for (var i= 0 ; i<datalist.length;i++){
-                //     //根据商品id获取对应商品
-                //     shoplist_id({id:datalist[i].goods_id}).then((resolve)=>{
-                //         ///购物车对应商品数据，
-                //         this.shop.push(resolve.docs[0])
-                //     })
-                // }
-                //
-                // console.log(this.shopdata)
-                //
-                //
-                // console.log(this.shop)
-
-
-
-
-            });
-
-
-            //把获取的商品数据和购物车数据拼接成购物车数组
-
-
-
-
-
-
-
-
+        async chedfind(){
+            const data =  await chedfind();
+            this.shopdata = data.docs;
         },
+        //勾选购物车
+        async Checklist(item){
+            const postdata = await Checklist(item);
+            this.chedfind();
+            this.CheckPrice()
+        },
+        //获取商品价格
+        async CheckPrice(){
+            const CheckPricedata = await CheckPrice()
+            this.Pricedata.Price = CheckPricedata.sum
+        },
+        // // 全选购物车
+        // async AllCheck(){
+        //     const Alldata = await Checklist();
+        //     this.chedfind();
+        //     this.CheckPrice()
+        // }
 
 
-        //确定勾选
-        Checklist(item){
 
-            // 遍历当前商品是那个购物车的
-
-            console.log(item)
-
-            //向服务器发送勾选商品
-
-
-
+        //向服务器发送结算,需要提交的商品
+        async Settlementcchlik(){
+            // const Settl = await Settlement();
+            this.$router.push({path: '/placeorder'  });
         }
+
+
+
+
+
+
+
+
+
+
 
 
     }
@@ -165,14 +151,21 @@ export default {
                 left: 0;
                 width: 42px;
                 height: 100%;
-
-
             .icon_select:after
                 position: absolute;
                 top 50%
                 background-size: 20px;
                 margin-left: -10px;
-
+                content: "";
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-image url("Selection.png")
+            .item-cn-active:after
+                position: absolute;
+                top 50%
+                background-size: 20px;
+                margin-left: -10px;
                 content: "";
                 display: block;
                 width: 20px;
@@ -214,104 +207,126 @@ export default {
         .a_head_right_text
             float right
             color red
-    .section
-        padding 5px
-        .item
-            position relative
-            background: #fff
-            width: 100%;
-            .goods
-                padding: 5px 10px 50px 128px;
-                .icon_select:after
-                    position: absolute;
-                    top: 35px;
-                    left: 21px;
-                    content: "";
-                    margin-left: -10px;
-                    display: block;
-                    width: 20px;
-                    height: 20px;
-                    background-image url("download.png")
-                    background-size: 20px;
-                .icon_select
-                    display block
-                    position: absolute;
-                    left: 0;
-                    width: 42px;
-                    height: 100px;
-                .img
-                    position absolute
-                    left: 43px;
-                    top: 5px;
-                    display: block;
-                    width: 75px;
-                    height: 75px;
-                .content
-                    font-size: 14px;
-                    margin-bottom: 5px;
+    .cmdtylist
+        padding-bottom 44px
+        .section
+            .item
+                position relative
+                background: #fff
+                width: 100%;
+                .goods
+                    padding: 5px 10px 50px 128px;
+                    .icon_select:after
+                        position: absolute;
+                        top: 35px;
+                        left: 21px;
+                        content: "";
+                        margin-left: -10px;
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                        background-image url("download.png")
+                        background-size: 20px;
+                    .icon_select
+                        display block
+                        position: absolute;
+                        left: 0;
+                        width: 42px;
+                        height: 100px;
+                    .item-cn-active
+                        display block
+                        position: absolute;
+                        left: 0;
+                        width: 42px;
+                        height: 100px;
+                    .item-cn-active:after
+                        position: absolute;
+                        top: 35px;
+                        left: 21px;
+                        content: "";
+                        margin-left: -10px;
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                        background-image url("Selection.png")
+                        background-size: 20px;
 
-                    .name
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                    .gooda-line
-                        position: relative;
-                        line-height 30px
-                        font-style: normal
-                        .picae
-                            font-size: 16px;
-                            line-height: 30px;
-                            padding 15px 0
-                            color: #e93b3d;
-                            float left
+
+
+                    .img
+                        position absolute
+                        left: 43px;
+                        top: 5px;
+                        display: block;
+                        width: 75px;
+                        height: 75px;
+                    .content
+                        font-size: 14px;
+                        margin-bottom: 5px;
+
+                        .name
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                        .gooda-line
+                            position: relative;
+                            line-height 30px
                             font-style: normal
-                            .int
+                            .picae
+                                font-size: 16px;
+                                line-height: 30px;
+                                padding 15px 0
+                                color: #e93b3d;
+                                float left
                                 font-style: normal
-                        .num_and_more
-                            background-color #FFFFFF
-                            float: right
-                            padding 13px 0
-                            .mun-wap
-                                position: relative;
-                                display: block;
-                                width: 113px;
-                                border-radius: 4px;
-                                overflow: hidden;
-                                background-color: #f7f7f7;
-                                .minus
+                                .int
+                                    font-style: normal
+                            .num_and_more
+                                background-color #FFFFFF
+                                float: right
+                                padding 13px 0
+                                .mun-wap
                                     position: relative;
-                                    float: left;
-                                    width: 30px;
-                                    height: 30px;
-                                    line-height: 30px;
-                                    text-align: center;
-                                span
-                                    float: left;
-                                    position: relative;
-                                    border-left: 1px solid #fff;
-                                    border-right: 1px solid #fff;
-                                .input_wrap
-                                    float: left
-                                    input
-                                        width: 45px;
-                                        border: none;
-                                        background-color #F7F7F7
-                                .plus
-                                    float: right;
-            .remove
-                position: absolute;
-                width 100px;
-                width:200px;
-                height:200px;
-                background:red;
-                right: 0;
-                top: 0;
-                color:#fff;
-                text-align: center;
-                font-size: 40px;
-                line-height: 200px;
+                                    display: block;
+                                    width: 113px;
+                                    border-radius: 4px;
+                                    overflow: hidden;
+                                    background-color: #f7f7f7;
+                                    .minus
+                                        position: relative;
+                                        float: left;
+                                        width: 30px;
+                                        height: 30px;
+                                        line-height: 30px;
+                                        text-align: center;
+                                    span
+                                        float: left;
+                                        position: relative;
+                                        border-left: 1px solid #fff;
+                                        border-right: 1px solid #fff;
+                                    .input_wrap
+                                        float: left
+                                        .num
+                                            width: 45px;
+                                            border: none;
+                                            background-color #F7F7F7
+                                            text-align: center;
+                                    .plus
+                                        float: right;
+                .remove
+                    position: absolute;
+                    width 100px;
+                    width:200px;
+                    height:200px;
+                    background:red;
+                    right: 0;
+                    top: 0;
+                    color:#fff;
+                    text-align: center;
+                    font-size: 40px;
+                    line-height: 200px;
     .fixbare
         position: fixed;
         left 0
@@ -323,17 +338,37 @@ export default {
         color: #333;
         font-size: 14px;
         z-index: 999;
-        .icon_select
-            width: 100px;
-            display block
-            text-align center
-            height 50px
-            line-height 50px
-            color: #999;
-        .icon_select::before
-            position relative
-            top 2px
-            font-size 20px
+        margin-top 44px
+
+        .item-cn-active
+            position: absolute;
+            top: 15px;
+            left 50px
+        .item-cn-active:after
+            position: absolute;
+            top: 0;
+            left: -33px;
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-image url("Selection.png")
+            background-size: 20px;
+        .icongouxuan
+            position: absolute;
+            top: 15px;
+            left 50px
+        .icongouxuan:after
+            position: absolute;
+            top: 0;
+            left: -33px;
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-image url("download.png")
+            background-size: 20px;
+
         .Checklis
             color red
         .total

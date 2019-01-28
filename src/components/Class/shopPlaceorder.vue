@@ -18,9 +18,6 @@
             </div>
         </div>
 
-
-
-
         <!--商品信息-->
         <div class="venderOrderList">
             <!--报单-->
@@ -31,18 +28,20 @@
                     <span class="pop_vname">哇吲箱包官方旗舰店</span>
                 </div>
                 <!-- 商品卡片列表 -->
-                <div class="venderList">
+                <div class="venderList" >
                     <ul>
-                        <li class="hproduct noclick">
+                        <li class="hproduct noclick" v-for="item in data">
                             <img class="photo" src="//img10.360buyimg.com/mobilecms/s117x117_jfs/t1/3769/36/7566/156186/5ba61252E13c87407/4e6d08cfa3665c23.jpg!q70.dpg.webp" >
-                            <div class="fn">                                                                                                                        <strong>哇吲wow-in潮流时尚双肩包女轻便防水背包韩版个性青少年书包790 灰色海绵肩带</strong>
+                            <div class="fn">                                                                                                                        <strong>{{item.goods_id.shop_name}}</strong>
                             </div>
                             <p class="sku_coll">灰色海绵肩带</p>
-                            <p class="sku_price">¥<span>239</span>.00</p>
+                            <p class="sku_price">¥<span>{{item.goods_id.checked}}</span></p>
 
 
                             <div style="float: right;" class="sku" >
-                                <van-stepper v-model="value" />
+                                <div class="sku_num" style="line-height: 30px;
+    color: #999;
+    font-size: 12px;">×{{item.goods_num}}</div>
                             </div>
 
 
@@ -61,10 +60,8 @@
 
                 </div>
             </div>
+
         </div>
-
-
-
 
 
 
@@ -73,14 +70,14 @@
             <ul class="buy_chart">
                 <li>
                     <p class="buy_chart_item_text">商品金额</p>
-                    <p class="buy_chart_item_price">¥&nbsp;239.00</p>
+                    <p class="buy_chart_item_price">¥&nbsp;{{sum}}.00</p>
                 </li>
                 <li class="buy_chart_item">
                     <p class="buy_chart_item_text">运费<small class="buy_chart_item_tip"> </small></p>
                     <p class="buy_chart_item_price">+&nbsp;¥0.00</p> </li>
             </ul>
             <div class="payArea">
-                <p class="price">总价：<strong id="pageTotalPrice" price="239.00">¥239.00</strong>  </p>
+                <p class="price">总价：<strong id="pageTotalPrice" >¥{{sum}}.00</strong>  </p>
 
                 <div class="payBtnList">
                     <a href="javascript:void(0);" @click="ConfirmOrder()" class="mod_btn bg_2">在线支付</a>
@@ -98,6 +95,7 @@
 </template>
 <script>
     import mheade from '../public/header/shop-header'
+    import {Settlement} from '@/api/apilist'
     export default {
         name: "shopPlaceorder",
         components:{
@@ -118,11 +116,28 @@
                     tel: '13000000000',
                     id: 0
                 }],
-
-
-
-                imageURL:'//img10.360buyimg.com/mobilecms/s117x117_jfs/t1/3769/36/7566/156186/5ba61252E13c87407/4e6d08cfa3665c23.jpg!q70.dpg.webp'
+                imageURL:'//img10.360buyimg.com/mobilecms/s117x117_jfs/t1/3769/36/7566/156186/5ba61252E13c87407/4e6d08cfa3665c23.jpg!q70.dpg.webp',
+                data:[],
+                sum:''
             }
+        },
+
+        mounted(){
+            this.OrderGoods();
+        },
+
+        methods:{
+            //获取待提交商品数据
+            async OrderGoods(){
+                const Settl = await Settlement();
+
+                this.data = Settl.docs;
+
+                this.sum = Settl.sum
+
+
+            }
+
         }
 
 
@@ -182,7 +197,7 @@
                             height: 30px;
                             line-height: 30px;
                             color: #e93b3d;
-                            font-size: 10px;
+                            font-size: 16px;
                         .sku
                             margin-top -35px
                         .order_info_tips
@@ -191,6 +206,7 @@
                             overflow: hidden;
                             li
                                 float: left;
+
                                 font-size: 12px;
                                 color: #999;
                                 margin-right: 5px;
@@ -200,18 +216,16 @@
                                     width: 15px;
                                     height: 15px;
                                     margin: -2px 2px 0 0
-
-
         .buy_section
             background-color: #fff;
             padding 10px 0
             .buy_chart
                 position: relative;
-
                 padding: 10px;
                 font-size: 14px;
                 li
                     display flex
+                    padding: 5px 0;
                     .buy_chart_item_text
                         -webkit-box-flex: 1;
                         -webkit-flex: 1;
@@ -219,10 +233,6 @@
                         color: #333;
                     .buy_chart_item_price
                         color: #e93b3d;
-
-
-
-
         .payArea
             font-size: 16px;
             font-weight: 700;
@@ -234,6 +244,7 @@
                 font-weight: 400;
         .payBtnList
             margin: 10px 0;
+            padding 5px 0
             background: #fff;
             .mod_btn
                 display: block;

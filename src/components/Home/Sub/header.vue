@@ -1,11 +1,22 @@
 <template>
     <div class="header">
-        <div  @click="_route()" :class="{ active: isActive } " class="search">
-            <i class="icongfont icon-my_light"></i>
-            <a class="placeholder" placeholder="搜索你想要的课程">
-                <span class="text iconfont icon-search">寻找宝贝店铺</span>
-            </a>
-        </div>
+
+        <!--<header style="width: 100%;">-->
+
+
+
+            <!--<div  @click="_route()" :class="{ active: isActive } " class="search">-->
+                <!--<i class="icongfont icon-my_light"></i>-->
+                <!--<a class="placeholder" placeholder="搜索你想要的课程">-->
+                    <!--<span class="text iconfont icon-search">寻找宝贝店铺</span>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!---->
+
+
+        <!--</header>-->
+
+
         <div class="banner">
             <swiper class="swiper">
                 <swiper-slide v-for="item in items" :key="item.img">
@@ -13,6 +24,8 @@
                 </swiper-slide>
             </swiper>
         </div>
+
+
     </div>
 </template>
 <script>
