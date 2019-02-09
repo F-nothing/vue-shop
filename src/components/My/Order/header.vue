@@ -18,8 +18,8 @@
   </div>
 </template>
 <script>
-  import mheade from '../public/header/shop-header.vue'
-  import one from './Order/o.vue'
+  import mheade from '../../public/header/shop-header.vue'
+  import one from './o.vue'
   export default {
     name: "",
     components:{

@@ -95,7 +95,6 @@ export default {
 }
 </script>
 <style lang='stylus'>
-// @import './Order';
 .address_defalut_wrap
     position relative
     z-index 320
@@ -153,7 +152,6 @@ export default {
                 -webkit-flex: none !important;
                 flex none
                 .seperator
-
                     border-bottom: 1px solid rgba(0,0,0,.1);
                     border: none;
             .cell
@@ -196,7 +194,4 @@ export default {
                 background-color: #f50;
                 color: red;
                 padding: 1.1em 1.4em;
-
-
-
 </style>

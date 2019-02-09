@@ -5,19 +5,15 @@
         <div>
             <mheade :titlee='title'></mheade>
         </div>
-        <!--收获地区-->
-        <div class="address_defalut_wrap">
+        <!--收货地址-->
+        <div class="address_defalut_wrap" @click="addres()">
             <div class="address_defalut_border">
-                <ul>
-                    <li>
-                        <strong>阚 176****4090</strong>
-                    </li>
-                    <li>  湖北孝感市安陆市东城经济开发区林语花都东区4栋1单元 </li>
-                </ul>
-
+                <li>
+                    <strong>{{this.list.consignee}} {{this.list.mobile}}</strong>
+                </li>
+                <li>{{this.list.province + this.list.city + this.list.district +this.list.address}}</li>
             </div>
         </div>
-
         <!--商品信息-->
         <div class="venderOrderList">
             <!--报单-->
@@ -31,7 +27,7 @@
                 <div class="venderList" >
                     <ul>
                         <li class="hproduct noclick" v-for="item in data">
-                            <img class="photo" src="//img10.360buyimg.com/mobilecms/s117x117_jfs/t1/3769/36/7566/156186/5ba61252E13c87407/4e6d08cfa3665c23.jpg!q70.dpg.webp" >
+                            <img class="photo" :src="item.goods_id.shop_img">
                             <div class="fn">                                                                                                                        <strong>{{item.goods_id.shop_name}}</strong>
                             </div>
                             <p class="sku_coll">灰色海绵肩带</p>
@@ -62,9 +58,6 @@
             </div>
 
         </div>
-
-
-
         <!--支付信息-->
         <div class="buy_section">
             <ul class="buy_chart">
@@ -80,12 +73,10 @@
                 <p class="price">总价：<strong id="pageTotalPrice" >¥{{sum}}.00</strong>  </p>
 
                 <div class="payBtnList">
-                    <a href="javascript:void(0);" @click="ConfirmOrder()" class="mod_btn bg_2">在线支付</a>
+                    <a @click="Submission()" class="mod_btn bg_2">提交订单</a>
                 </div>
             </div>
         </div>
-
-
         <!--底部-->
         <div class="qq_footer" style="">
             <div class="jd_logo" id="jdBtmLogo"></div>
@@ -95,7 +86,7 @@
 </template>
 <script>
     import mheade from '../public/header/shop-header'
-    import {Settlement} from '@/api/apilist'
+    import {Settlement,payMent,cartList} from '@/api/apilist'
     export default {
         name: "shopPlaceorder",
         components:{
@@ -105,46 +96,55 @@
         data(){
             return{
                 title:'填写订单',
-                chosenAddressId: '1',
-                chosenContactId: null,
-                editingContact: {},
-                showList: false,
-                showEdit: false,
-                isEdit: false,
-                list: [{
-                    name: '张三',
-                    tel: '13000000000',
-                    id: 0
-                }],
-                imageURL:'//img10.360buyimg.com/mobilecms/s117x117_jfs/t1/3769/36/7566/156186/5ba61252E13c87407/4e6d08cfa3665c23.jpg!q70.dpg.webp',
-                data:[],
-                sum:''
+                list: [],
+                data:[],  //待结算的商品,
+                datalist:[],
+                sum:''    //当前价值
             }
         },
-
         mounted(){
             this.OrderGoods();
+            this.address();
         },
 
         methods:{
-            //获取待提交商品数据
+            //获取地址列表
+            async address(){
+                const data = await cartList();
+                this.list = data.docs[0];
+            },
+
+            //获取订单商品数据
             async OrderGoods(){
                 const Settl = await Settlement();
-
                 this.data = Settl.docs;
-
                 this.sum = Settl.sum
+            },
+            //提交订单
+            async Submission(){
+                var address = this.list._id;//当前勾选的地址列表
+                var shopdata = [];//获取提交提交的商品列表
+                var data = [];
+                data.address = address;
+                data.userId = 1;
+                const Submission = await payMent(data);
+
+                console.log(Submission);
+
+                // alert('提交订单成功，跳转收银台');
+
+                // this.$router.push({path: '/pay'  });
 
 
             }
-
         }
-
 
     }
 </script>
 <style lang="stylus" scoped>
-    .wx_wrap
+    .wx_wrap{
+
+    }
         .address_defalut_wrap
             position relative
             .address_defalut_border
@@ -178,6 +178,7 @@
                             top: 15px;
                             left: 0;
                         .fn
+                            overflow: hidden;
                             padding-left: 85px;
                             line-height: 20px;
                             margin-bottom: 5px;
@@ -261,7 +262,6 @@
             .bg_2
                 background: #3884ff;
                 color: #fff;
-
         .qq_footer
             margin: 25px 0 75px;
             .jd_logo
@@ -269,6 +269,6 @@
                 width: 100px;
                 height: 20px;
                 margin: 0 auto;
-                background url('download.png') no-repeat
+                background url('../../images/logodownload.png') no-repeat
                 background-size: 100%;
 </style>

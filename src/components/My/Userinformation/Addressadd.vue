@@ -1,8 +1,6 @@
 <template>
     <div>
-
         <mheade  :titlee="title"></mheade>
-
 
         <van-address-edit
                 :area-list="areaList"
@@ -15,28 +13,30 @@
                 @delete="onDelete"
                 @change-detail="onChangeDetail"
         />
-
-
-
-
-
-
     </div>
 </template>
 
 <script>
-    import mheade from '../public/header/shop-header'
+    import mheade from '@/components/public/header/shop-header'
     export default {
         components:{
             mheade
         },
         data() {
             return {
-                title:'新增收货地址',
-                areaList:'',
-                searchResult: []
+                title:'编辑收货地址',
+                dataaaaaa:[],
+
             }
         },
+
+
+        mounted(){
+            this.dataaaaaa = JSON.parse(localStorage.getItem("address"))
+
+
+        },
+
 
         methods: {
             onSave() {
@@ -55,6 +55,9 @@
                     this.searchResult = [];
                 }
             }
+
+
+
         }
     }
 </script>

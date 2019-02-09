@@ -89,7 +89,7 @@
                         margin-top: -10px;
                         content: "";
 
-                        background-image url("download.png")
+                        background-image url("../../images/logodownload.png")
 
                         width: 24px;
                         height: 24px;

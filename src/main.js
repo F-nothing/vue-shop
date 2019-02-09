@@ -3,16 +3,12 @@ import App from './App.vue'
 import router from './router'
 
 import FastClick from 'fastclick'
+
+
 import '../public/css/reset.css'  //样式初始化
-import '../public/css/personality.css'  //个性样式
 
-
-
-import store from './components/srore/store'
-
-
-// import Vuex from 'Vuex'
-// Vue.use(Vuex);
+import '../public/css/personality.css'  //样式个性话
+import store from './srore/store'
 
 
 
@@ -25,11 +21,9 @@ if ('addEventListener' in document) {
 
 
 
-//ElementUI框架
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
-import Vant from 'vant';
+
+
+import Vant from 'vant'
 import 'vant/lib/index.css';
 Vue.use(Vant);
 
@@ -52,9 +46,9 @@ Vue.prototype.$axios = axios;
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 
-Vue.use(VueAwesomeSwiper, /* { default global options } */)
+Vue.use(VueAwesomeSwiper, /* { default global options } */);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 
 

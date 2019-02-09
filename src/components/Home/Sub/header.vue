@@ -1,22 +1,14 @@
 <template>
     <div class="header">
+        <header style="width: 100%;">
+            <div  @click="_route()" :class="{ active: isActive } " class="search">
+                <i class="icongfont icon-my_light"></i>
+                <a class="placeholder" placeholder="搜索你想要的课程">
+                    <span class="text iconfont icon-search">寻找宝贝店铺</span>
 
-        <!--<header style="width: 100%;">-->
-
-
-
-            <!--<div  @click="_route()" :class="{ active: isActive } " class="search">-->
-                <!--<i class="icongfont icon-my_light"></i>-->
-                <!--<a class="placeholder" placeholder="搜索你想要的课程">-->
-                    <!--<span class="text iconfont icon-search">寻找宝贝店铺</span>-->
-                <!--</a>-->
-            <!--</div>-->
-            <!---->
-
-
-        <!--</header>-->
-
-
+                </a>
+            </div>
+        </header>
         <div class="banner">
             <swiper class="swiper">
                 <swiper-slide v-for="item in items" :key="item.img">
@@ -83,41 +75,47 @@
 
     }
 </script>
-<style lang="stylus" type="text/stylus" scoped>
-@import "//at.alicdn.com/t/font_908836_ph12c3kpu6h.css"
-.header
-    font-size 0
-    .active
-        background-color #E43130
-    .search
-        position fixed
-        z-index: 15;
-        left: 0;
-        top: 0;
-        right: 0;
-        max-width: 640px;
-        margin: 0 auto;
-        padding 10px 40px
-        .placeholder
-            display block
-            text-align center
-            background-color #FFFFFF
-            border-radius: 10px;
-            overflow: hidden;
-        .text
-            height 25px;
-            line-height 25px
-            color #232326;
-            font-size: 13px;
-            display: inline-block;
-    .banner
-        width 100%
-        height 182px
+<style lang="scss" scoped>
+    /*@import "//at.alicdn.com/t/font_908836_ph12c3kpu6h.css";*/
+    @import "../../../mimin.scss";
+    @import "../../../index.scss";
+    .header{
+        font-size: 0;
+        .active {
+            background-color: red;
+        }
+        .search{
+            position: fixed;
+            z-index: 15;
+            left: 0;
+            top: 0;
+            right: 0;
+            margin: 0 auto;
+            padding: vw(10) vw(40);
+            .placeholder{
+                display: block;
+                text-align: center;
+                background-color: #EEEEEE;
+                opacity: 0.8;
+                border-radius: vw(10);
+                overflow: hidden;
+                .text{
+                    @include line(vw(25),vw(25),vw(12));
+                }
+            }
+        }
+        .banner{
+                width: 100%;
+                .swiper {
+                    width: 100%;
+                    position: relative;
+                    overflow: hidden;
+                    img{
+                        width: 100%;
+                        height: vw(182)
+                    }
+                }
+            }
 
-        .swiper
-            width 100%
-            position relative
-            img
-                width 100%
-                height 182px
+    }
 </style>

@@ -4,7 +4,7 @@
             <div class="tsearchwrap">
                 <van-search
 
-                        v-model="value"
+                        v-mol="value"
                         placeholder="请输入搜索关键词"
                         background="red"
                 >

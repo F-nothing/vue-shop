@@ -1,23 +1,22 @@
 <template>
   <div class="Navbar">
-   <router-link
-           v-for="(item,index) of nav"
-           :key="index"
-           class="tab"
-           :class="item.class ? 'item-cn-active':''"
-           :to=item.to
-           @click.native="routerLink(index)" >
-      <span class="iconfont"
-            :class="item.iconfont">
-      </span>
-      <p class="text">{{item.title}}</p>
-    </router-link>
+       <router-link
+               v-for="(item,index) of nav"
+               :key="index"
+               class="tab"
+               :class="item.class ? 'item-cn-active':''"
+               :to=item.to
+               @click.native="routerLink(index)" >
+          <span class="iconfont"
+                :class="item.iconfont">
+          </span>
+          <p class="text">{{item.title}}</p>
+        </router-link>
   </div>
 </template>
 <script>
   export default {
       name: "",
-
       data(){
          return{
             navIndex: 0,
@@ -29,7 +28,6 @@
             ],
          }
       },
-
       mounted(){
           //获取当前url  给navbar设置索引
           //代码有点垃圾，多多包涵，哈哈
@@ -40,6 +38,7 @@
                   this.$store.state.Navbar = 0;
                   break;
               case this.nav[1].to:
+
                   this.$store.state.Navbar = 1;
                   break;
               case this.nav[2].to:
@@ -60,33 +59,39 @@
       }
   }
 </script>
-<style lang="stylus" type="text/stylus" scoped>
-@import "//at.alicdn.com/t/font_882041_sxq9914r80k.css"
-.Navbar
-  box-sizing border-box
-  position fixed
-  display: flex
-  justify-content space-around
-  text-align center
-  left:0
-  bottom 0;
-  width 100%
-  padding-top: 2px;
-  border-top: 1px solid #e7e7e7;
-  z-index 100
-  font-size 12px
-  background-color #fcfcfc
-  padding 5px 0
-  .tab
-    color:#0a0d20;
-    .iconfont
-      font-size 24px
-      height: 25px;
-      line-height: 25px;
-      font-weight 700
-    .text
-      font-size 12px
-      transform: scale(0.83333333);
-  .item-cn-active
-    color #1AA89A
+<style lang="scss" scoped>
+    @import url(//at.alicdn.com/t/font_882041_sxq9914r80k.css);
+    @import "../mimin";
+    .Navbar{
+        box-sizing: border-box;
+        position: fixed;
+        display: flex;
+        text-align: center;
+        left:0;
+        bottom: 0;
+        width: 100%;
+        z-index: 100;
+        font-size:vw(12);
+        background-color:#fcfcfc;
+        padding:vw(5) 0;
+        .tab{
+            color:#0a0d20;
+            width: 25%;
+            display: block;
+            .iconfont{
+                font-size:vw(24);
+                height:vw(25);
+                line-height:vw(25);
+                font-weight:700
+            }
+            .text{
+                font-size:vw(12);
+                transform: scale(0.83333333);
+            }
+        }
+        .item-cn-active {
+            color: #1AA89A;
+        }
+
+    }
 </style>

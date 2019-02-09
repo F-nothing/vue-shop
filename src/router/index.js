@@ -1,78 +1,29 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
-
-
-
-import store from '@/components/srore/store'
-
-
-const App =()=>import('@/App');
-
-const Class =()=>import('@/components/Class/index')//商品分类
-
-
-const List =()=>import('@/components/Class/list')
-
-
-
-const Home =()=>import('@/components/Home/Home.vue'); //首页
-
-
-
-
-const demo =()=>import('@/components/Chea/demo.vue')
-
-const Demoo =()=>import('@/components/Logo')
-const placeorder =()=>import('@/components/Class/shopPlaceorder')//提交订单
-const  pay=()=>import('@/components/Class/pay')
-const  commodity=()=>import('@/components/Class/details.vue')//商品页面
-
-const My =()=>import('@/components/My/my')
-
-const address =()=>import('@/components/My/address')
-const Addressadd =()=>import('@/components/My/Addressadd')
-
-const o =()=>import('@/components/My/Order/o.vue')
-const oo =()=>import('@/components/My/Order/oo.vue')
-const ooo =()=>import('@/components/My/Order/ooo.vue')
-const oooo =()=>import('@/components/My/Order/oooo.vue')
-const p =()=>import('@/components/My/Order.vue')
-const name =()=>import('@/components/My/header.vue')
-const Chea =()=>import('@/components/Chea/index')
-
-
-
-
-const Search =()=>import('@/components/Class/Search')
-
-
-
-// import { from } from 'array-flatten';
 Vue.use(Router);
 const router = new Router({
-
   mode: 'history',
   routes:[
       {
           path:'/',
-          component:App, //顶级路由
+          component:resolve=>require(["@/App"],resolve), //顶级路由
           children:[     //二级路由
               //当路由为空时跳转首页
               {
                 path:'',
-                component:Home
+                name:'home',
+                component:resolve=>require(["@/components/Home/Home.vue"],resolve),
               },
               //商品分类
               {
                 path:'Class',
-                component:Class
+                component:resolve=>require(["@/components/Class/index"],resolve)
 
               },
               //购物车页面
               {
                 path:'Chea',
-                component:Chea,
+                component:resolve=>require(["@/components/Chea/index"],resolve),
                 meta: {
                   requiresAuth: true,
                   title:'购物车'
@@ -82,53 +33,42 @@ const router = new Router({
               {
                 name:'My',
                 path:'/My',
-                component:My,
+                component:resolve=>require(["@/components/My/index"],resolve),
                 meta: {
                   title:'我的',
                   requiresAuth: true
                 },
               },
-            {
-              path:'/address',
-              component:address,
-            },
-            {
-              path:'/Addressadd',
-              component:Addressadd,
-            },
-
-
-
-
-
               {
                 path:'My/name',
-                component:name,
+                component:resolve=>require(["@/components/My/Order/header.vue"],resolve),
                 meta:{
                   title:'个人中心'
                 },
                 children:[
                   {
                     path:'address',
-                    component:o
+                    component:resolve=>require(["@/components/My/Userinformation/address.vue"],resolve),
                   },
 
                   {
-                    path:'',
-                    component:o,
+                    path:'/Addressadd',
+                    component:resolve=>require(["@/components/My/Userinformation/Addressadd"],resolve),
                   },
+
+
                   {
                     path:'/My/name/oo',
-                    component:oo,
+                    component:resolve=>require(["@/components/My/Order/oo.vue"],resolve),
                   },
                   {
                     path:'/My/name/ooo',
-                    component:ooo,
+                    component:resolve=>require(["@/components/My/Order/ooo.vue"],resolve),
                   },
-                  {
-                    path:'/My/name/oooo',
-                    component:oooo,
-                  }
+                  // {
+                  //   path:'/My/name/oooo',
+                  //   component:resolve=>require(["@/components/My/Order/oooo.vue'"],resolve),
+                  // }
                 ]
               },
 
@@ -145,12 +85,15 @@ const router = new Router({
 
 
 
-
+    {
+      path:'/details',
+      component:resolve=>require(["@/components/My/Order/details"],resolve),
+    },
 
 
     {
       path:'/Search',
-      component:Search
+      component:resolve=>require(["@/components/Class/Search"],resolve),
     },
 
 
@@ -159,9 +102,8 @@ const router = new Router({
 
     {
       path:'/demo',
-      component:demo
+      component:resolve=>require(["@/components/Chea/demo.vue"],resolve),
     },
-
 
 
 
@@ -169,19 +111,19 @@ const router = new Router({
     //商品搜索页
     {
       path:'/user/:id',
-      component:List
+      component:resolve=>require(["@/components/Class/list"],resolve),
     },
 
       //商品页
     {
       path:"/commodity",
-      component:commodity
+      component:resolve=>require(["@/components/Class/details.vue"],resolve),
 
     },
     //确认订单
     {
       path:"/placeorder",
-      component:placeorder,
+      component:resolve=>require(["@/components/Class/shopPlaceorder"],resolve),
       meta:{
         title:'确认订单'
       }
@@ -190,14 +132,16 @@ const router = new Router({
     //收银台
     {
       path:"/pay",
-      component:pay,
+      component:resolve=>require(["@/components/Class/pay"],resolve),
       meta:{
         title:'收银台'
       }
     },
+
+
     {
       path:"/logo",
-      component:Demoo,
+      component:resolve=>require(["@/components/Logo"],resolve),
       meta:{
         title:'登陆'
       }
@@ -208,44 +152,35 @@ const router = new Router({
   ],
 });
 
-router.beforeEach((to,from,next)=>{
-  let token = store.state.token;
-
-  //为每个页面设置title
-  if (to.meta.title) {
-    document.title = to.meta.title
-  }
-  next();
-
-
-  if (to.meta.requiresAuth) {
-    if (token) {
-      next();
-    } else {
-      next({
-        path: '/logo',
-        query: { redirect: to.fullPath } // 将刚刚要去的路由path（却无权限）作为参数，方便登录成功后直接跳转到该路由
-      });
-    }
-  } else {
-    next(); //如果无需token,那么随它去吧
-  }
-
-  if(to.path == '/logo'){
-    if (token) {
-      next({
-        path: '/'
-      })
-    }else {
-      next()
-    }
-
-  }
+// router.beforeEach((to,from,next)=>{
+//   let token = sessionStorage.getItem('login');
+//
+//
+//
+//   if (to.meta.requiresAuth) {
+//     if (token) {
+//       next();
+//     } else {
+//       next({
+//         path: '/logo',
+//         query: { redirect: to.fullPath } // 将刚刚要去的路由path（却无权限）作为参数，方便登录成功后直接跳转到该路由
+//       });
+//     }
+//   } else {
+//     next(); //如果无需token,那么随它去吧
+//   }
+//
+//   if(to.path == '/logo'){
+//     if (token) {
+//       next({
+//         path: '/'
+//       })
+//     }else {
+//       next()
+//     }
+//
+//   }
+// });
 
 
-
-
-
-
-});
 export default router

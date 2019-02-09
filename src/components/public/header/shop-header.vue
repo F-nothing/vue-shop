@@ -1,13 +1,12 @@
 <template>
     <section class="cname" >
-        <div class="m_header_bar" style="display: flex;">
-            <div @click="$router.history.go(-1)" class="m_header_bar iconfont icon-xiala-copy" ></div>
+        <div class="m_header_bar header" style="display: flex;">
+            <div @click="$router.history.go(-1)" class="m_header_">
+                <svg t="1549678926274" class="icon" width="45px" height="20px"  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1949" xmlns:xlink="http://www.w3.org/1999/xlink" ><defs></defs><path d="M695.04 824.32c12.8-12.8 12.8-33.28 0-45.44L400 481.92 695.04 183.68c12.8-12.8 12.8-33.28 0-45.44-12.16-12.8-32.64-12.8-45.44-1e-8l-314.24 317.44c-1.28 1.28-3.2 1.28-4.48 2.56000001-12.8 12.8-12.8 33.28 0 45.44l318.08 320C661.76 837.12 682.24 837.12 695.04 824.32z" p-id="1950"></path></svg>
+            </div>
             <div class="m_header_bar_title">{{titlee}}</div>
-            <!--<div style="width: 100%">-->
-                <!--<slot/>-->
-            <!--</div>-->
-
-            <div class="m_header_bar iconfont icon-more">
+            <div class="m_header_">
+                <svg t="1549679162026" class="icon"  width="45px" height="20px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2064" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><path d="M224 608c-52.928 0-96-43.072-96-96s43.072-96 96-96c52.928 0 96 43.072 96 96S276.928 608 224 608z" p-id="2065"></path><path d="M512 608c-52.928 0-96-43.072-96-96s43.072-96 96-96c52.928 0 96 43.072 96 96S564.928 608 512 608z" p-id="2066"></path><path d="M800 608c-52.928 0-96-43.072-96-96s43.072-96 96-96c52.928 0 96 43.072 96 96S852.928 608 800 608z" p-id="2067"></path></svg>
             </div>
         </div>
     </section>
@@ -24,30 +23,32 @@ export default {
     }
 }
 </script>
-<style lang='stylus'>
+<style lang='scss'>
 @import url(//at.alicdn.com/t/font_908836_nu64hp9k9ug.css);
-    .m_header_bar
+@import "../../../mimin";
+    .m_header_bar{
         display: flex;
-        height 44px
-        background-color #fff
-        position relative
-        .m_header_bar
-            display block
-            width 44px
-            height 44px
-            line-height 44px
+        height: 45px;
+        color: black;
+        font-size: 12px;
+
+        .m_header_{
+            display: block;
+            width: 45px;
+            height: 45px;
+            line-height:45px;
             text-align: center;
-            font-size 28px
-        .m_header_bar_title
-            height: 44px;
-            line-height: 44px;
+            font-size:28px;
+        }
+        .m_header_bar_title{
+            height: 45px;
+            line-height:45px;
             font-size: 18px;
-            color: #333;
             text-align: center;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            @include text_hidden();
             flex: 1;
+        }
+    }
 </style>
 
 

@@ -1,9 +1,4 @@
 import {get,post} from '../api/getapi'
-
-
-
-
-
 /**
  *商品分类查询
  */
@@ -15,10 +10,6 @@ export const shoplist = data =>get('/goods/get_fingshop',data);
 
 
 export const get_fingshoppp = data =>get('/goods/get_fingshoppp',data);
-
-
-
-
 /**
  * 根据商品id查询商品
  */
@@ -46,20 +37,31 @@ export const Settlement = data =>post('/goods/Settlement',data);
  */
 export const CheckPrice = data =>post('/goods/CheckPrice',data);
 
-// /**
-//  * 获取收货地址
-//  */
-// export const CheckPrice = data =>post('/goods/CheckPrice',data);
-// /**
-//  * 编辑收货地址
-//  */
-// export const CheckPrice = data =>post('/goods/CheckPrice',data);
+/**
+ * 获取支付订单
+ */
+export const getPaymey = data =>get('/goods/getPaymey',data);
 
+
+
+
+/**
+ * 获取收货地址
+ */
+export const cartList = data =>get('/users/cartList',data);
+
+
+
+
+/**
+ * 提交订单
+ */
+export const payMent = data=>post('/goods/payMent',data);
 
 /**
  *登陆接口
  */
-export const login = data =>get('/users/login',data);
+export const login = data =>post('/users/login',data);
 /**
  *注册接口
  */

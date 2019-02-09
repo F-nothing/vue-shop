@@ -24,14 +24,7 @@ export function getSug(p) {
     return jsonp(url,data)
 }
 
-// /**
-//  * 淘宝商品查询
-//  */
-// export function getfind() {
-//     const url = 'https://acs.m.taobao.com/h5/mtop.taobao.wsearch.h5search/1.0/';
-//
-//     const data =Object.assign({},getfindshop);
-//
-//     return jsonp(url,data)
-//
-// }
+
+export function f() {
+
+}

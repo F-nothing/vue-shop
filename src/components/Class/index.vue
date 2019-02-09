@@ -1,17 +1,10 @@
 <template>
     <div class="body_wrap">
         <div style="border-bottom: 1px solid #E5E5E5">
-            <heade>
-                <van-search
-                        placeholder="请输入搜索关键词"
-                        background="#ffffff"
-
-                />
+            <heade :titlee='title'>
             </heade>
         </div>
         <div class="categoryBody" >
-
-
             <div class="rootList category1">
                 <div class="overflow: hidden; height: 719px;">
                     <ul v-for="item in data">
@@ -29,7 +22,7 @@
                             <ul style="    padding: 7px 10px 0;">
                                 <li @click="no(opp)"  style="width: 32.8%;float: left;text-align: center;"   v-for="opp in op">
                                     <img style="margin: 0 auto;width: 70px;
-    height: 70px;"  src="//img30.360buyimg.com/focus/s140x140_jfs/t1/1446/14/631/8500/5b9237e5E0d1f9e16/b1a627b92323b5ed.png">
+    height: 70px;"  :src="opp.icon">
                                     <div style="color: #333;">{{opp.cat_name}}</div>
                                 </li>
                             </ul>
@@ -37,19 +30,18 @@
                     </div>
             </div>
         </div>
+        <Navbar></Navbar>
     </div>
 </template>
 <script>
     import {Classlist,shoplist} from '../../api/apilist'
+    import Navbar from "../Navbar"
     import heade from '../public/header/shop-header'
-
-
-
-
     export default {
         name: "index",
         components:{
-            heade
+            heade,
+            Navbar
         },
 
         data(){
@@ -57,7 +49,7 @@
                 data:[],
                 // 被选中的数据
                 op:[],
-
+                title:'热门分类',
                 item:''
             }
         },
@@ -68,13 +60,7 @@
         },
         methods:{
 
-            imgError(item) {
-                this.item = 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2310514390,3580363630&fm=27&gp=0.jpg'
-            },
-//图片加载完毕之后，执行的回调
-            successLoadImg(){
-                alert(2)
-            },
+
 
 
             onNavClick(index) {
