@@ -1,3 +1,4 @@
+
 module.exports={
     devServer: {
         port:3033,
@@ -6,7 +7,8 @@ module.exports={
             // 本地接口
             '/api': {
                 target: 'http://localhost:3089/v1',
-                // target: 'http://118.89.36.145:3089/v1',服务器地址
+                // 服务器地址
+                // target: 'http://118.89.36.145:3089/v1',
                 changeOrigin: true,
                 ws: true,
                 pathRewrite: {
@@ -20,9 +22,8 @@ module.exports={
     },
 
 
-    
 
-    // productionSourceMap: false
+    productionSourceMap: false
 
 
 };

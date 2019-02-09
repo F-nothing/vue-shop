@@ -10,9 +10,6 @@
   "dependencies": {
     "element-ui": "^2.4.11",
     "jsonp": "^0.2.1",
-    "koa": "^2.2.0",
-    "koa-bodyparser": "^4.2.0",
-    "koa-router": "^7.4.0",
     "stylus": "0.52.4",
     "stylus-loader": "^3.0.1",
     "vant": "^1.4.2",
@@ -30,7 +27,7 @@
     "babel-loader": "^7.1.5",
     "lib-flexible": "^0.3.2",
     "node-sass": "^4.10.0",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^6.0.7",
     "stylus-px2rem": "^1.0.14",
     "vue-lazyload": "^1.2.6",
     "vue-template-compiler": "^2.5.17",
