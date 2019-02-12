@@ -30,12 +30,15 @@ export const chedfind = data =>post('/goods/chedfind',data);
  */
 export const Checklist = data =>post('/goods/Checklist',data);
 
+export const getAllched = data =>post('/goods/Allched',data);
+
+
 
 export const Settlement = data =>post('/goods/Settlement',data);
 /**
  * 获取商品价格
  */
-export const CheckPrice = data =>post('/goods/CheckPrice',data);
+export const CheckPrice = data =>post('/goods/Settlement',data);
 
 /**
  * 获取支付订单
@@ -65,3 +68,4 @@ export const login = data =>post('/users/login',data);
 /**
  *注册接口
  */
+export const Reg = data =>post('/users/reg',data);

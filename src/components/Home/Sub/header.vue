@@ -10,14 +10,12 @@
             </div>
         </header>
         <div class="banner">
-            <swiper class="swiper">
-                <swiper-slide v-for="item in items" :key="item.img">
+            <van-swipe :autoplay="3000" indicator-color="white" class="swiper">
+                <van-swipe-item v-for="item in items" :key="item.img">
                     <img class="img" :src="item.picUrl">
-                </swiper-slide>
-            </swiper>
+                </van-swipe-item>
+            </van-swipe>
         </div>
-
-
     </div>
 </template>
 <script>
@@ -77,8 +75,8 @@
 </script>
 <style lang="scss" scoped>
     /*@import "//at.alicdn.com/t/font_908836_ph12c3kpu6h.css";*/
-    @import "../../../mimin.scss";
-    @import "../../../index.scss";
+    @import "../../../style/mimin";
+    @import "../../../style/index";
     .header{
         font-size: 0;
         .active {

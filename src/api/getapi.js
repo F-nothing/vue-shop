@@ -42,10 +42,6 @@ axios.interceptors.response.use(
         return response;
     }
 );
-
-
-
-
 /**
  * post方法，对应post请求
  * @param {String} url [请求的url地址]
@@ -57,15 +53,10 @@ export function post(url,params) {
         axios.post(url,QS.stringify(params)).then(res=>{
             resolve(res.data);
         }).catch(err=>{
-
-            console.log(this)
-
             reject(err)
         })
     });
 }
-
-
 /**
  * get方法，对应get请求
  * @param {String} url [请求的url地址]
@@ -78,9 +69,8 @@ export function get(url, params){
         }).then(res => {
             resolve(res.data);
         }).catch(err =>{
-
-
             reject(err)
         })
-    });}
+    });
+}
 

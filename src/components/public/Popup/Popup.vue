@@ -2,7 +2,6 @@
     <div class="van-popu" @click="clic" :class="{show:myResult}">
         <div class="van-popu-bottom" id="parent" :class="{showw:myResult}">
             <slot></slot>
-
         </div>
     </div>
 </template>
@@ -12,7 +11,6 @@ export default {
         // 当前组件是否显示 属性true false
         isShow:{
             type:Boolean,
-            default:'',
         },
     },
     data(){
@@ -31,11 +29,10 @@ export default {
     },
     methods:{
         clic(e){
-            let par = e.target.id
             if(e.target.id!= 'parent'){
                 this.myResult = false;
             }
-        },  
+        },
     },
 
 
@@ -45,13 +42,13 @@ export default {
 .van-popu{
     position:fixed;
     width: 100%;
-    height: 100%; 
+    height: 100%;
     z-index: 10000;
     top: 0;
     left: -10000px;
     right: 0;
     bottom: 0;
-    background-color: rgba(74,74,74,0.5); 
+    background-color: rgba(74,74,74,0.5);
     transition: all .1s cubic-bezier(0, -0.67, 0, -0.46);
     opacity: 0;
     .van-popu-bottom{
@@ -60,7 +57,7 @@ export default {
         bottom: -500px;
         height: 300px;
         background: #FFFFFF;
-        width: 100%;  
+        width: 100%;
         left: 0;
         transition: all 0.4s cubic-bezier(0.55, 0.09, 0.68, 0.53);
     }
@@ -68,11 +65,11 @@ export default {
         bottom: 0;
 
     }
-}  
+}
 .show{
     left: 0;
     opacity: 1;
-}  
-       
+}
+
 </style>
 

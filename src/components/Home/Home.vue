@@ -5,8 +5,6 @@
             <Heade></Heade>
             <!--菜单-->
             <Floor></Floor>
-            <!--头条通知-->
-            <Toutiao></Toutiao>
             <!--秒杀-->
             <Spike></Spike>
             <!--我的足迹-->
@@ -24,7 +22,6 @@
     import Loading from '../loading'
     import Heade from './Sub/header'
     import Floor from './Sub/floor.vue'
-    import Toutiao from './Sub/Toutiao.vue'
     import Recommend from './Sub/Recommend.vue'
     import Spike from './Sub/Spike.vue'
     import foter from './Sub/mCommonFooter.vue'
@@ -36,7 +33,6 @@
             Loading,
             Heade,
             Floor,
-            Toutiao,
             foter,
             Recommend,
             Spike,

@@ -23,9 +23,8 @@ const router = new Router({
               //购物车页面
               {
                 path:'Chea',
-                component:resolve=>require(["@/components/Chea/index"],resolve),
+                component:resolve=>require(["@/components/Chea/Chea"],resolve),
                 meta: {
-                  requiresAuth: true,
                   title:'购物车'
                 }
               },
@@ -36,7 +35,6 @@ const router = new Router({
                 component:resolve=>require(["@/components/My/index"],resolve),
                 meta: {
                   title:'我的',
-                  requiresAuth: true
                 },
               },
               {
@@ -72,12 +70,18 @@ const router = new Router({
                 ]
               },
 
+            //商品搜索页
+            {
+              path:'/user',
+              component:resolve=>require(["@/components/Class/list"],resolve),
+            },
 
+            //商品页
+            {
+              path:"/commodity",
+              component:resolve=>require(["@/components/Class/details.vue"],resolve),
 
-
-
-
-
+            },
           ]
 
 
@@ -100,26 +104,12 @@ const router = new Router({
 
 
 
-    {
-      path:'/demo',
-      component:resolve=>require(["@/components/Chea/demo.vue"],resolve),
-    },
 
 
 
 
-    //商品搜索页
-    {
-      path:'/user/:id',
-      component:resolve=>require(["@/components/Class/list"],resolve),
-    },
 
-      //商品页
-    {
-      path:"/commodity",
-      component:resolve=>require(["@/components/Class/details.vue"],resolve),
 
-    },
     //确认订单
     {
       path:"/placeorder",
@@ -146,6 +136,7 @@ const router = new Router({
         title:'登陆'
       }
     },
+
 
 
 

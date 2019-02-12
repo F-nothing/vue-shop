@@ -1,33 +1,25 @@
 <template>
-    <div class="">
-        <!-- Universal header component -->
-        <div class="header">
-            <div class="header-left">
-                <span class="iconfont icon-xiala-copy"></span>
-            </div>
-            <div class="header-congtcoll">
+    <div class="box">
+
+        <!--头部导航-->
+        <Mhader>
+            <div class="header">
+                <div class="header-congtcoll">
                     <a><span>商品</span></a>
                     <a><span>评价</span></a>
                     <a><span>详情</span></a>
                     <a><span>推荐</span></a>
+                </div>
             </div>
-            <div class="header-right">
-                <span class="iconfont icon-more"></span>
-            </div>
-        </div>
-
-
-
+        </Mhader>
+        <!--商品主图-->
         <div class="mod_slider">
             <swiper class="swiper">
                 <swiper-slide >
-                    <img class="img" :src="shop.shop_img">
+                    <img class="img"  :src="shop.shop_img">
                 </swiper-slide>
             </swiper>
         </div>
-
-
-        <!-- Spike module -->
         <div class="buy_area">
             <div class="priceWrap">
                 <span class="price large_size" id="priceSale">¥{{shop.checked}}</span>
@@ -49,12 +41,11 @@
         <div class="favour">
             <!-- shop title -->
             <div class="detail_gap"></div>
-            <!-- S SKU属性弹窗折叠方案 -->
+            <!-- SKU属性弹窗折叠 -->
             <div class="sku_window" @click="click">
                 <div class="sku_choose_info">
                     <h3>已选</h3>
                     <span id="skuChoose1">无</span>
-
                 </div>
             </div>
             <div class="detail_gap"></div>
@@ -84,22 +75,41 @@
                 <van-goods-action-big-btn @click="AddOrder(shop)" primary  text="立即购买"/>
             </van-goods-action>
         </div>
-
         <popup
                 :isShow='isShow'
                 ref="main"
                 id="popup"
                 v-on:on-result-change="onResultChange">
         </popup>
+
+
+
+
+        <!--商品详情介绍-->
+
+        <!-- 商品介绍 -->
+
+        <!-- 商品参数 -->
+        <!--售后保障-->
+        <video controls="controls" style="" preload="none" webkit-playsinline="true" playsinline="" src="https://jdvodoss.jcloudcache.com/vodtransgzp1251412368/7447398157111835018/v.f20.mp4?dockingId=2d164af0-8bf5-4784-95c9-f3d0fc91d731&amp;storageSource=3">暂时不支持播放该视频</video>
+
+        <img src="https://img20.360buyimg.com/vc/jfs/t22723/170/2314708222/3557070/68ef7f44/5b7bc247N894c9b7b.jpg!q70.dpg">=
     </div>
 </template>
 <script>
 import popup from '../public/Popup/Popup'
-import {joinched,shoplist_id,login} from '../../api/apilist'
+import {joinched,shoplist_id} from '../../api/apilist'
+import Mhader from '@/components/public/header/shop-header'
 export default {
     components:{
         popup,
+        Mhader,
+        data:false
     },
+
+
+
+
     data(){
         return{
             isShow:false,
@@ -110,12 +120,12 @@ export default {
     created(){
         //获取商品id
         var id = this.$route.query.id;
-        const res = shoplist_id({id:id}).then((response)=>{
+        shoplist_id({id:id}).then((response)=>{
             this.shop = response.docs[0]
         })
     },
     methods:{
-        click(val){
+        click(){
             this.isShow = true;
         },
         onResultChange(val){
@@ -124,7 +134,7 @@ export default {
         //加入购物车
          async Addcart(){
             this.shopfrom._id =this.shop._id;
-            const data = await joinched(this.shopfrom);
+            await joinched(this.shopfrom);
          },
         AddOrder(shop){
             this.$router.push({path: '/placeorder' ,query:{id:[shop._id]} });
@@ -134,119 +144,68 @@ export default {
 </script>
 <style lang='scss' scoped>
 @import url(//at.alicdn.com/t/font_908836_efu9flurzmg.css);
+@import "../../style/index";
+@import "../../style/mimin";
 .header{
-    position:fixed;
-    height:45px;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background: #0a0d20;
-    color: #fcfcfc;
-    z-index: 101;
-
-    .header-left{
-        width: 40px;
-        height: 44px;
-        position: absolute;
-        span{
-            margin: 12px 0 0 10px;
-            line-height: 44px;
-        }
-        span::before{
-            font-size:22px;
-        }
-    }
+    height:vw(45);
     .header-congtcoll{
-        height: 44px;
-        font-size: 16px;
-        line-height: 44px;
+        @include line(vw(44),vw(44),vw(16));
+        @include text_hidden();
         color: #fcfcfc;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        margin: 0 70px;
+        margin: 0 vw(70);
         display: flex;
         a{
+            color: #0a0d20;
+            font-weight: 700;
             -webkit-box-flex: 1;
-            font-size: 14px;
+            font-size: vw(14);
             -webkit-flex: 1;
             flex: 1;
             text-align: center;
         }
-
-    }
-    .header-right{
-        width: 40px;
-        height: 44px;
-        position: absolute;
-        top: 0;
-        right: 0;
-        span{
-            margin: 12px 0 0 10px;
-            line-height: 44px;
-        }
-        span::before{
-            font-size:22px;
-        }
-    }
-}
-.mod_slider{
-    margin-top: 45px;
-    .swiper{
-        img{
-            width: 100%;
-            height: 380px;
-
-        }
     }
 }
 .buy_area{
-    padding-top: 12px;
-    padding-bottom: 10px;
     position: relative;
-    padding: 15px 10px;
+    padding: vw(15) vw(10);
     background: #fcfcfc;
-    font-size: 12px;
+    font-size: vw(12);
     .priceWrap{
-        padding-left: 10px;
+        padding-left: vw(10);
         .price{
-            font-size: 22px;
+            font-size: vw(22);
             color: red;
-            font-weight: 700;
-            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
         }
     }
     .fn_goods_name{
-        margin-top: 10px;
-        font-size: 18px;
+        margin-top: vw(10);
+        font-size: vw(18);
         font-weight: 400;
         .mod_tag_big img{
-            height: 15px;
+            height: vw(15);
         }
     }
     .favourr{
         position: absolute;
         top: 0;
         right: 0;
-        margin-top: 5px;
-        padding-top: 20px;
-        font-size: 10px;
-        height: 10px;
-        width: 50px;
+        margin-top: vw(15);
+        padding-top: vw(20);
+        font-size: vw(10);
+        height: vw(10);
+        width: vw(50);
         color: #333;
         text-align: center;
     }
     .favourr::after{
         content:"";
         position: absolute;
-        background-size: 100px 100px;
+        background-size: vw(100) vw(100);
         top: 0;
-        left: 15px;
-        width: 22px;
-        height: 21px;
-        background-size: 100px 100px;
-        background-position: -50px -3px;
+        left: vw(15);
+        width: vw(22);
+        height: vw(21);
+        background-position: vw(-50) vw(-3);
         background-image: url(//wq.360buyimg.com/fd/h5/wxsq_dev/detail/images/cart_sprits_all_54ae802c.png)
     }
 }
@@ -256,28 +215,28 @@ export default {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: vw(50);
     display: flex;
     background: #FFFFFF;
     .icon_btn{
         width:14%;
         text-align: center;
         display: block;
-        height: 50px;
+        height: vw(50);
         position: relative;
         color: #666;
         .iconfont{
-            height: 25px;
+            height: vw(25);
             display: block;
             position: relative;
         }
         .iconfont::before{
-            font-size: 35px;
+            font-size: vw(35);
         }
         span{
-            font-size: 14px;
+            font-size: vw(14);
             text-align: center;
-            line-height: 30px;
+            line-height: vw(30);
         }
     }
     .de_span{

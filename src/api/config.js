@@ -19,26 +19,32 @@ export const commonTbParams={
 
 //淘宝商品查询
 export const getfindshop={
-    keyword:'QQ',
-    datatype:1,
-    callback:'jdSearchResultBkCbA',
-    page:2,
-    pagesize:10,
-    ext_attr:'no',
-    brand_col:'no',
-    price_col:'no',
-    color_col:'no',
-    size_col:'no',
-    ext_attr_sort:'no',
-    merge_sku:'yes',
-    multi_suppliers:'yes',
-    area_ids:'1,72,2819',
-    qp_disable:'no',
-    fdesc:'北京',
-    t1:1548252388235
+    terminal:'m',
+    zip:1,
+    newjson:1,
+    _:1549850834512,
+    sceneval:2,
+    // callback:'jsonpCBKF'
 };
 
 
+
+export const Zepto={
+    pi:1,
+    pc:22,
+    // recpos:6163,
+    hi:{page:1,pagesize:22},
+    // _:1549852750794,
+    // callback:'Zepto1549852750754',
+};
+
+export const secondkill={
+    actid:114285,
+    // callback:getSeckillCb,
+    pc:20,
+    t:0.6425691962974982,
+    traceid:572619716209052471,
+};
 
 export const opitons ={
     param:'jsonpCallback'

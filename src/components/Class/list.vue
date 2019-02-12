@@ -81,14 +81,8 @@
                 <!--</div>-->
             <!--</div>-->
 
-
-
-
-
-
-
             <div>
-                <div v-for="shoplist in shop" class="search_prolist_item" @click="shopchlick(shoplist._id)">
+                <div v-for="shoplist in shop" :key="shoplist.index" class="search_prolist_item" @click="shopchlick(shoplist._id)">
                     <van-card
                             tag="标签"
                             price="2.00"
@@ -99,28 +93,17 @@
                     </van-card>
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
 </template>
 <script>
-    import {shoplist} from '../../api/apilist'
     export default {
         name: "list",
         data(){
             return{
                 shop:[],
-
-
-                message: 'Hello'
-
             }
         },
-
-
         mounted(){
             this.shoplis()
         },
@@ -133,18 +116,13 @@
                         params: {id:id}
                     }
                 ).then((response)=>{
-                    console.log(response)
                     this.shop = response.data.mas
-                }).catch((err)=>{
                 })
             },
 
             //接受当前点击商品id
             shopchlick(shoplist){
                 // console.log(shoplist)
-
-
-                // this.$router.push({path: '/user/:',query:{id:opp.value} });
                 this.$router.push({path: '/commodity' ,query:{id:[shoplist]} });
 
             }

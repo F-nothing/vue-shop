@@ -10,33 +10,6 @@
                 </li>
             </ul>
         </div>
-        <div class="scroll_news">
-                <div class="news_more">
-                    <img src="//m.360buyimg.com/mobilecms/jfs/t14752/82/2574581467/6535/c8158ace/5aa8935bN94e31ff6.jpg.dpg">
-                </div>
-                <div class="news_list_wrapper">
-                    <ul>
-                        <li class="news_item">
-                            <a>
-                                <span class="red">HOT</span>
-                                联想重回PC市场龙头，但移动业务却止步不前
-                            </a>
-                        </li>
-                        <li class="news_item">
-                            <a>
-                                <span class="red">HOT</span>
-                                联想重回PC市场龙头，但移动业务却止步不前
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <a class="news_news_more">
-                    <i class="line"></i>
-                    更多
-                </a>
-            </div>
-
     </div>
 </template>
 <script>
@@ -92,8 +65,10 @@ export default {
 }
 </script>
 <style lang='scss'>
-    @import "../../../mimin";
-    @import "../../../index.scss";
+    @import "../../../style/mimin";
+    @import "../../../style/index";
+
+
 .floor{
     margin:0;
     background-color: #FFFFFF;
@@ -128,44 +103,7 @@ export default {
             }
         }
     }
-    .scroll_news{
-        position: relative;
-        border-radius: 0;
-        .news_more {
-            position: absolute ;
-            top: vw(4);
-            left:vw(10);
-            img{
-                width: vw(62);
-                height: vw(20);
-            }
-        }
-        .news_list_wrapper{
-            height: vw(30);
-            overflow: hidden;
-            margin: 0 vw(50) 0 vw(80);
-            ul{
-                li{
-                    @include line(vw(30),vw(30),vw(14));
-                    color: #181818;
-                }
-            }
-        }
-        .news_news_more{
-            position: absolute;
-            top: vw(7);
-            right: vw(10);
-            font-size: vw(12);
-            .line{
-                background: #ececec;
-                width: vw(1);
-                height: vw(15);
-                display: inline-block;
-                margin-right: 1px;
-                vertical-align: middle;
-            }
-        }
-    }
+
 
 }
 

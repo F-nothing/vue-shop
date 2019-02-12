@@ -7,7 +7,7 @@
         <div class="categoryBody" >
             <div class="rootList category1">
                 <div class="overflow: hidden; height: 719px;">
-                    <ul v-for="item in data">
+                    <ul v-for="item in data" :key="item.index">
                         <li @click="list(item)">{{item.cat_name}}</li>
                     </ul>
                 </div>
@@ -20,7 +20,7 @@
     color: #333;">热门分类</h4>
 
                             <ul style="    padding: 7px 10px 0;">
-                                <li @click="no(opp)"  style="width: 32.8%;float: left;text-align: center;"   v-for="opp in op">
+                                <li @click="no(opp)"  style="width: 32.8%;float: left;text-align: center;"   v-for="opp in op" :key="opp.index">
                                     <img style="margin: 0 auto;width: 70px;
     height: 70px;"  :src="opp.icon">
                                     <div style="color: #333;">{{opp.cat_name}}</div>
@@ -34,7 +34,7 @@
     </div>
 </template>
 <script>
-    import {Classlist,shoplist} from '../../api/apilist'
+    import {Classlist} from '../../api/apilist'
     import Navbar from "../Navbar"
     import heade from '../public/header/shop-header'
     export default {
@@ -75,14 +75,7 @@
 
             //跳转 父id商品列表
             no(opp){
-                const rou_id = opp.value;
-
-
-                // this.$router.push({path: '/user/' + opp.value});
-
-                this.$router.push({path: '/user/:',query:{id:opp.value} });
-
-
+                this.$router.push({path: '/user',query:{id:opp.value} });
             },
             async Classlist(){
                 const res = await Classlist();
@@ -124,7 +117,4 @@
             .fr
                 flex 1
                 padding 0 10px
-
-
-
 </style>

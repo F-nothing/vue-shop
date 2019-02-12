@@ -26,7 +26,7 @@
                 <!-- 商品卡片列表 -->
                 <div class="venderList" >
                     <ul>
-                        <li class="hproduct noclick" v-for="item in data">
+                        <li class="hproduct noclick" v-for="item in data" :key="item.index">
                             <img class="photo" :src="item.goods_id.shop_img">
                             <div class="fn">                                                                                                                        <strong>{{item.goods_id.shop_name}}</strong>
                             </div>
@@ -123,16 +123,12 @@
             //提交订单
             async Submission(){
                 var address = this.list._id;//当前勾选的地址列表
-                var shopdata = [];//获取提交提交的商品列表
+                // var shopdata = [];//获取提交提交的商品列表
                 var data = [];
                 data.address = address;
                 data.userId = 1;
-                const Submission = await payMent(data);
-
-                console.log(Submission);
-
+                await payMent(data);
                 // alert('提交订单成功，跳转收银台');
-
                 // this.$router.push({path: '/pay'  });
 
 

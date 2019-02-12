@@ -39,12 +39,7 @@
 
 
         methods: {
-            onSave() {
-                Toast('save');
-            },
-            onDelete() {
-                Toast('delete');
-            },
+
             onChangeDetail(val) {
                 if (val) {
                     this.searchResult = [{

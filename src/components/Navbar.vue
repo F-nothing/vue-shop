@@ -61,7 +61,7 @@
 </script>
 <style lang="scss" scoped>
     @import url(//at.alicdn.com/t/font_882041_sxq9914r80k.css);
-    @import "../mimin";
+    @import "../style/mimin";
     .Navbar{
         box-sizing: border-box;
         position: fixed;

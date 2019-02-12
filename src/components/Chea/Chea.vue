@@ -60,14 +60,14 @@
             </div>
 
         </div>
-        <Recommend></Recommend>
+        <!--<Recommend></Recommend>-->
     </div>
 </template>
 <script>
 import mheade from '../public/header/shop-header'
-import Navbar from '../Navbar'
+import Navbar from '@/components/Navbar'
 import Recommend from '../Home/Sub/Recommend'
-import {chedfind,Checklist,CheckPrice} from '../../api/apilist'
+import {chedfind,Checklist,CheckPrice,getAllched} from '../../api/apilist'
 export default {
     components:{
         mheade,
@@ -79,26 +79,46 @@ export default {
             is:false,
             title:'购物车',
             shopdata:[],//购物车原始数据
-            Pricedata:{
+
+            Pricedata:{ //购物车当前价格
                 Price:''
             },
             data:sessionStorage.getItem("login"),
-            selected : 1
+            selected : null
         }
     },
     created:function () {
-        this.chedfind();
-        this.CheckPrice()
+        if(this.data){
+            this.chedfind();
+            this.CheckPrice()
+        }
     },
     methods:{
         //获取购物车数据(判断是否登陆,如果没登陆获取本地存储的数据)
         async chedfind(){
             const data =  await chedfind();
             this.shopdata = data.docs;
+            //循环当前是否有  未选中的selected=1  有设置为全选
+            for(var i = 0;i<this.shopdata.length;i++){
+                if(this.shopdata[i].selected == 0){
+                    this.selected = 0
+                }else {
+                    this.selected = 1
+                }
+            }
         },
         //勾选购物车
         async Checklist(item){
             await Checklist(item);
+            this.chedfind();
+            this.CheckPrice()
+        },
+        //商品数量加一
+
+        //全选购物车
+        async AllCheck(){
+            //判断当前是否全选
+            await getAllched({All:this.selected});
             this.chedfind();
             this.CheckPrice()
         },
@@ -117,7 +137,7 @@ export default {
 </script>
 <style lang='stylus' scoped>
     @import url(//at.alicdn.com/t/font_908836_u1pqixh7ok.css);
-    @import "../../mimin.scss"
+    @import "../../style/mimin.scss"
     .box
         background-color #FFFFFF
         .head_wrap
@@ -320,7 +340,7 @@ export default {
                         line-height: 200px;
         .Indizio
             width 100%
-            padding 20px 0
+            padding ve 0
             position relative
             .Indizio-box
                 a

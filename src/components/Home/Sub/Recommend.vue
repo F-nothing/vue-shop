@@ -10,12 +10,12 @@
                 <a>
                     <div class="similar-product">
                         <div class="similar-posre">
-                            <img :src="data.shop_img">
+                            <img :src="'//img14.360buyimg.com/mobilecms/s372x372_'+ data.img + '!q70.dpg'">
                         </div>
-                        <span>{{data.shop_name}}</span>
+                        <span>{{data.t}}</span>
                         <div class="similar-product-info">
                             <span class="similar-product-price">
-                                <span class="big-price">￥{{data.checked}}</span>
+                                <span class="big-price">￥{{data.jp/100}}</span>
                             </span>
                         </div>
                     </div>
@@ -25,7 +25,8 @@
     </div>
 </template>
 <script>
-    import {get_fingshoppp} from '../../../api/apilist'
+    // import {get_fingshoppp} from '../../../api/apilist'
+    import {getZeptoo} from '../../../api/recommend'
     export default {
         data(){
             return{
@@ -34,20 +35,22 @@
         },
         //自动获取推荐数据
         created(){
-            get_fingshoppp()
-                // this.$store.commit('showLoading')
-                .then((res)=>{
-                    this.get_fingshoppp = res.docs;
-                    this.$store.commit('hideLoading')
-                })
-                .catch((err)=>{
-                    // this.$store.commit('showLoading')
-                })
+            // get_fingshoppp()
+            //     // this.$store.commit('showLoading')
+            //     .then((res)=>{
+            //         this.get_fingshoppp = res.docs;
+            //         this.$store.commit('hideLoading')
+            //     })
+
+            getZeptoo().then((res)=>{
+                this.get_fingshoppp = res.data;
+                this.$store.commit('hideLoading')
+            })
         },
     }
 </script>
 <style lang='scss'>
-    @import "../../../mimin";
+    @import "../../../style/mimin";
     .love-foor{
         width:100%;
         .gray-text {

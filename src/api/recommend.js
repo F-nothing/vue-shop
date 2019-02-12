@@ -1,5 +1,5 @@
 import jsonp from '../config/jsonp'
-import {commonParams,commonTbParams,getfindshop,opitons} from "./config";
+import {commonParams,opitons,getfindshop,Zepto,secondkill} from "./config";
 
 
 /**
@@ -12,19 +12,32 @@ export function getRecommend() {
 
     return jsonp(url,data,opitons)
 }
-
 /**
  * JD商品关键词查询
  */
 export function getSug(p) {
-    const url = 'https://so.m.jd.com/ware/search._m2wq_list';
+    const url = 'https://wq.jd.com/bases/searchdropdown/getdropdown';
 
-    const data =Object.assign({},getfindshop,{q:p.q});
+    const data =Object.assign({},getfindshop,{key:p.q});
 
     return jsonp(url,data)
 }
 
+/**
+ * JD商品推荐
+ */
 
-export function f() {
+export function getZeptoo() {
+    const url = 'https://wqcoss.jd.com/mcoss/reclike/getrecinfo';
+    const data =Object.assign({},Zepto,);
+    return jsonp(url,data)
+}
 
+/**
+ * JD秒杀商品推荐
+ */
+export function getsecondkill() {
+    const url = 'https://wqcoss.jd.com/mcoss/secondkill/show';
+    const data =Object.assign({},secondkill,);
+    return jsonp(url,data)
 }
