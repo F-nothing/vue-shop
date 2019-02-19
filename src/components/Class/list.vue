@@ -97,6 +97,7 @@
     </div>
 </template>
 <script>
+    import {get_fingshop} from '../../api/apilist'
     export default {
         name: "list",
         data(){
@@ -111,13 +112,7 @@
         methods:{
             async shoplis(){
                 const id =this.$route.query.id;
-                this.$axios('/goods/get_fingshop',
-                    {
-                        params: {id:id}
-                    }
-                ).then((response)=>{
-                    this.shop = response.data.mas
-                })
+                await get_fingshop({id:id}).then((response)=>{this.shop = response.data})
             },
 
             //接受当前点击商品id

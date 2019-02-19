@@ -18,30 +18,29 @@ if (process.env.NODE_ENV == 'development') {
 
 
 axios.interceptors.request.use(config=>{
-        let  token = sessionStorage.getItem("login");
+        let token = sessionStorage.getItem("login");
         if(token){
             token && (config.headers.Authorization = token);
         }
         return config;
     },
-
     error => Promise.error(error)
 );
 
 
 
 
-
-// http response 拦截器
-axios.interceptors.response.use(
-    response => {
-        switch (response.data.result) {
-            case "token效验错误":
-                sessionStorage.clear();
-        }
-        return response;
-    }
-);
+//
+// // http response 拦截器
+// axios.interceptors.response.use(
+//     response => {
+//         switch (response.data.result) {
+//             case "token效验错误":
+//                 sessionStorage.clear();
+//         }
+//         return response;
+//     }
+// );
 /**
  * post方法，对应post请求
  * @param {String} url [请求的url地址]

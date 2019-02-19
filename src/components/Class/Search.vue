@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="background-color: #ffffff;height: 100vh">
         <van-search background="red"   placeholder="请输入搜索关键词" v-model="value" />
         <div class="suggest-container">
             <ul class="suggest-sug">
@@ -24,6 +24,30 @@
                     margin-right: 10px;" v-for="items in item.tag">{{items.tsh}}</span>
                 </li>
             </ul>
+        </div>
+        <div class="ContentWraper" style="padding-left: 13px;
+    margin-top: 15px;
+}">
+            <div id="msHistory" class="recent-search">
+                <div class="recent-search-head cf" style="padding: 0 15px 25px 0;">
+                    <p style="font-size: 15px;
+    line-height: 15px;
+    color: #232326;
+    float: left;
+    width: 100px;
+    padding-left: 1px;">最近搜索</p>
+                    <i id="msHistoryDel" class="garbage-pic"></i>
+                </div>
+
+                <div id="msHistoryTags" class="recent-search-tags">
+                    <span style="display: inline-block;padding: 0 10px;background-color: #f0f2f5;height: 28px;line-height: 28px;text-align: center;border-radius: 20px">
+                        <a style="color: black;" href="javascript:void(0);">
+                            <i class="hot-search-move hot-search-red">直饮水龙头</i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+
         </div>
     </div>
 </template>
@@ -50,12 +74,29 @@
                     if (res){
                         this.items = res;}
                 });
+            },
+
+
+            gerRouter(item){
+                console.log(item)
+
+                var data = window.localStorage.getItem('searchhistory');
+
+
+
+
+                window.localStorage.setItem('searchhistory',data)
+
+
 
             }
+
+
+
         }
     }
 </script>
 
-<style scoped>
+<style  scoped>
 
 </style>

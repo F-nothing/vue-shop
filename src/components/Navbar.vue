@@ -48,7 +48,6 @@
                   this.$store.state.Navbar = 3;
                   break;
           }
-
           var isSelece = this.$store.state.Navbar;
           this.nav[isSelece].class = true
       },

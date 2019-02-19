@@ -25,7 +25,7 @@
     </div>
 </template>
 <script>
-    // import {get_fingshoppp} from '../../../api/apilist'
+    import {mapState, mapMutations} from 'vuex'
     import {getZeptoo} from '../../../api/recommend'
     export default {
         data(){
@@ -35,18 +35,18 @@
         },
         //自动获取推荐数据
         created(){
-            // get_fingshoppp()
-            //     // this.$store.commit('showLoading')
-            //     .then((res)=>{
-            //         this.get_fingshoppp = res.docs;
-            //         this.$store.commit('hideLoading')
-            //     })
-
+            this.SHOWLoading()
             getZeptoo().then((res)=>{
                 this.get_fingshoppp = res.data;
-                this.$store.commit('hideLoading')
+                this.HIDELoading()
             })
         },
+        methods:{
+            ...mapMutations([
+                'SHOWLoading',
+                'HIDELoading'
+            ])
+        }
     }
 </script>
 <style lang='scss'>

@@ -7,23 +7,28 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state:{
         count:0,
-        username: '',
-        token : sessionStorage.getItem("login"),
+
+        token:sessionStorage.getItem("login") ? 'test' : '登陆/注册',
         is:false,
-        LOADING: true
+        LOADING: false,
+
+
+        username: '',//用户id
+        login: true,//是否登录
+        userInfo: null, //用户信息
+
+
+
     },
 
     mutations:{
-        showLoading(state){
+        SHOWLoading(state){
             state.LOADING = true
         },
-        hideLoading (state) {
+        HIDELoading (state) {
             state.LOADING = false
         }
-    }
-
-
-
+    },
 
 
 });

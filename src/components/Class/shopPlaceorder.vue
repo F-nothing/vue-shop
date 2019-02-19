@@ -99,7 +99,8 @@
                 list: [],
                 data:[],  //待结算的商品,
                 datalist:[],
-                sum:''    //当前价值
+                sum:'',    //当前价值
+                cart_id:[]
             }
         },
         mounted(){
@@ -113,7 +114,6 @@
                 const data = await cartList();
                 this.list = data.docs[0];
             },
-
             //获取订单商品数据
             async OrderGoods(){
                 const Settl = await Settlement();
@@ -123,13 +123,20 @@
             //提交订单
             async Submission(){
                 var address = this.list._id;//当前勾选的地址列表
-                // var shopdata = [];//获取提交提交的商品列表
+                for(let i=0;i<this.data.length;i++){
+                    this.cart_id.push(this.data[i]._id)
+                }
+
                 var data = [];
                 data.address = address;
                 data.userId = 1;
+                data.cart_id = this.cart_id
+
+
+
                 await payMent(data);
-                // alert('提交订单成功，跳转收银台');
-                // this.$router.push({path: '/pay'  });
+                alert('提交订单成功，跳转收银台');
+                this.$router.push({path: '/pay'  });
 
 
             }
@@ -230,20 +237,23 @@
                         color: #333;
                     .buy_chart_item_price
                         color: #e93b3d;
-        .payArea
+        .payArea {
             font-size: 16px;
             font-weight: 700;
             margin-bottom: 20px;
             text-align right
             padding: 0 10px;
-            strong
+            strong {
                 color: #e93b3d;
                 font-weight: 400;
-        .payBtnList
+            }
+        }
+        .payBtnList {
             margin: 10px 0;
             padding 5px 0
             background: #fff;
-            .mod_btn
+
+            .mod_btn {
                 display: block;
                 -webkit-box-flex: 1;
                 -webkit-flex: 1;
@@ -255,16 +265,23 @@
                 font-size: 16px;
                 border-radius: 4px;
                 position: relative;
-            .bg_2
+            }
+
+            .bg_2 {
                 background: #3884ff;
                 color: #fff;
-        .qq_footer
+            }
+        }
+        .qq_footer {
             margin: 25px 0 75px;
-            .jd_logo
+
+            .jd_logo {
                 display: block;
                 width: 100px;
                 height: 20px;
                 margin: 0 auto;
                 background url('../../images/logodownload.png') no-repeat
                 background-size: 100%;
+            }
+        }
 </style>

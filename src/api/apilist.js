@@ -22,7 +22,7 @@ export const joinched = data =>post('/goods/joinched',data);
 /**
  * 获取购物车
  */
-export const chedfind = data =>post('/goods/chedfind',data);
+export const chedfind = data =>post('/users/chedfind',data);
 /**
  * 勾选商品
  * @param data
@@ -38,7 +38,7 @@ export const Settlement = data =>post('/goods/Settlement',data);
 /**
  * 获取商品价格
  */
-export const CheckPrice = data =>post('/goods/Settlement',data);
+export const CheckPrice = data =>post('/users/Settlement',data);
 
 /**
  * 获取支付订单
@@ -47,25 +47,17 @@ export const getPaymey = data =>get('/goods/getPaymey',data);
 
 
 
+export const get_fingshop = data =>get('/goods/get_fingshop',data);
 
 /**
  * 获取收货地址
  */
 export const cartList = data =>get('/users/cartList',data);
-
-
-
-
 /**
  * 提交订单
  */
 export const payMent = data=>post('/goods/payMent',data);
 
-/**
- *登陆接口
- */
+
 export const login = data =>post('/users/login',data);
-/**
- *注册接口
- */
 export const Reg = data =>post('/users/reg',data);

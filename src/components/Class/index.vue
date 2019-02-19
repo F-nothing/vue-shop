@@ -5,70 +5,64 @@
             </heade>
         </div>
         <div class="categoryBody" >
-            <div class="rootList category1">
-                <div class="overflow: hidden; height: 719px;">
+            <div class="rootList">
+                <div>
                     <ul v-for="item in data" :key="item.index">
                         <li @click="list(item)">{{item.cat_name}}</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="fr category2" style="background-color: #fff" >
+            <div class="fr" >
                     <div class="jd-category-third-promotion">
-                        <div class="tp-class-list" style="margin: 19px 7px 0;overflow:hidden;">
-                            <h4 style="font-size: 14px;
-    color: #333;">热门分类</h4>
+                        <div class="tp-class-list">
+                            <h4>热门分类</h4>
 
-                            <ul style="    padding: 7px 10px 0;">
-                                <li @click="no(opp)"  style="width: 32.8%;float: left;text-align: center;"   v-for="opp in op" :key="opp.index">
-                                    <img style="margin: 0 auto;width: 70px;
-    height: 70px;"  :src="opp.icon">
-                                    <div style="color: #333;">{{opp.cat_name}}</div>
+                            <ul>
+                                <li @click="no(opp)"   v-for="opp in op" :key="opp.index">
+                                        <img :src="opp.icon">
+
+                                    <sapn>{{opp.cat_name}}</sapn>
                                 </li>
                             </ul>
                         </div>
                     </div>
             </div>
         </div>
+        <Loading v-if="LOADING"></Loading>
         <Navbar></Navbar>
     </div>
 </template>
 <script>
+    import {mapState} from 'vuex'
     import {Classlist} from '../../api/apilist'
+    import Loading from '../loading'
     import Navbar from "../Navbar"
     import heade from '../public/header/shop-header'
     export default {
         name: "index",
         components:{
             heade,
+            Loading,
             Navbar
         },
-
         data(){
             return{
                 data:[],
-                // 被选中的数据
                 op:[],
                 title:'热门分类',
                 item:''
             }
         },
-
-
+        computed:{
+            ...mapState([
+                'LOADING'
+            ])
+        },
         mounted(){
             this.Classlist()
         },
         methods:{
-
-
-
-
-            onNavClick(index) {
-                this.mainActiveIndex = index;
-            },
-            onItemClick(data) {
-                this.activeId = data.id;
-            },
             list(item){
                this.op= item.childList
             },
@@ -84,6 +78,7 @@
                     let branchArr = cloneData.filter((child)=>{
                         return father.value == child.parent_id
                     });
+                    this.$store.commit('hideLoading')
                     if(branchArr.length>0){
                         father.childList = branchArr
                     }
@@ -96,25 +91,62 @@
         }
     }
 </script>
-
-<style lang="stylus"  scoped>
-    .body_wrap
-        background-color #FFFFFF
+<style lang="scss" scoped>
+    @import "../../style/index";
+    .body_wrap {
+        background-color: #FFFFFF;
         height: 100vh;
-        .search
-            .van-search
-                background-color red
-        .categoryBody
-            display flex
-            .rootList
-                width 80px
-                padding 0 10px
-                li
-                    width 80px
-                    height: 46px;
-                    line-height: 46px;
+        .search {
+            .van-search {
+                background-color: red;
+            }
+        }
+        .categoryBody {
+            display :flex;
+            .rootList{
+                width: vw(80);
+                padding: 0 vw(10);
+                li {
+                    width: vw(80);
+                    @include line(vw(46),vw(46));
                     text-align: center;
-            .fr
-                flex 1
-                padding 0 10px
+                }
+            }
+            .fr {
+                flex: 1;
+                background-color: #fff;
+                .jd-category-third-promotion{
+                    .tp-class-list{
+                        margin: vw(19) vw(7) 0;
+                        overflow:hidden;
+                        h4{
+                            font-size: vw(14);
+                            color: #333;
+                        }
+                        ul{
+                            padding: vw(7) vw(10) 0;
+                            overflow: hidden;
+                            li{
+                                width: 33%;
+                                float: left;
+                                text-align: center;
+                                img{
+                                    margin: 0 auto;
+                                    width: vw(70);
+                                    height: vw(70);
+                                }
+                                sapn{
+                                    font-size: vw(12);
+                                    display: block;
+                                    height: 35px;
+                                    color: #333;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 </style>

@@ -1,8 +1,7 @@
 <template>
-    <div class="box">
-
+    <div class="b   ox">
         <!--头部导航-->
-        <Mhader>
+        <Mhader style="opacity: 0.8;position: absolute;width: 100%">
             <div class="header">
                 <div class="header-congtcoll">
                     <a><span>商品</span></a>
@@ -45,7 +44,7 @@
             <div class="sku_window" @click="click">
                 <div class="sku_choose_info">
                     <h3>已选</h3>
-                    <span id="skuChoose1">无</span>
+                    <span id="skuChoose1">（6G+128G）星云渐变,1个</span>
                 </div>
             </div>
             <div class="detail_gap"></div>
@@ -91,7 +90,12 @@
 
         <!-- 商品参数 -->
         <!--售后保障-->
-        <video controls="controls" style="" preload="none" webkit-playsinline="true" playsinline="" src="https://jdvodoss.jcloudcache.com/vodtransgzp1251412368/7447398157111835018/v.f20.mp4?dockingId=2d164af0-8bf5-4784-95c9-f3d0fc91d731&amp;storageSource=3">暂时不支持播放该视频</video>
+
+
+        <!-- 视频播放器 -->
+        <video controls="controls" style="width: 100%;height: 100%;background: #000;" preload="none" webkit-playsinline="true" playsinline="" src="https://jdvodoss.jcloudcache.com/vodtransgzp1251412368/5285890781127343430/v.f20.mp4?dockingId=5b2c355b-61c3-4fc5-8ffb-7b6e9fc97937&storageSource=3">暂时不支持播放该视频</video>
+
+
 
         <img src="https://img20.360buyimg.com/vc/jfs/t22723/170/2314708222/3557070/68ef7f44/5b7bc247N894c9b7b.jpg!q70.dpg">=
     </div>
@@ -121,7 +125,7 @@ export default {
         //获取商品id
         var id = this.$route.query.id;
         shoplist_id({id:id}).then((response)=>{
-            this.shop = response.docs[0]
+            this.shop = response.data[0]
         })
     },
     methods:{
@@ -167,11 +171,10 @@ export default {
 }
 .buy_area{
     position: relative;
-    padding: vw(15) vw(10);
+    padding: vw(10) vw(10);
     background: #fcfcfc;
     font-size: vw(12);
     .priceWrap{
-        padding-left: vw(10);
         .price{
             font-size: vw(22);
             color: red;
@@ -181,9 +184,11 @@ export default {
         margin-top: vw(10);
         font-size: vw(18);
         font-weight: 400;
-        .mod_tag_big img{
-            height: vw(15);
+        .fn_text_wrap{
+            font-size:16px;
+            font-weight: bold;
         }
+
     }
     .favourr{
         position: absolute;
@@ -280,12 +285,15 @@ export default {
             padding: 0 20px 0 35px;
             h3{
                 position: absolute;
+                font-size: 12px;
+                top: vw(2);
                 width: 40px;
                 left: 0;
             }
             span{
-                font-size: 14px;
+                font-size: vw(14);
                 color: #333;
+                font-weight: 700;
             }
         }
         .sku_choose_info:after{

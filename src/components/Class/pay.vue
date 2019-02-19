@@ -3,8 +3,11 @@
         <div>
             <mheade :titlee='titlee'></mheade>
         </div>
-
-
+        <p style="font-size: 1.5rem;
+    color: #333;
+    margin: .3rem 0 1rem;
+    text-align: center;
+}" class="time">00 : 12 : 54</p>
         <div class="order-bar-wrap">
             <div class="order-bar">
                 <span class="JS-pay-tip pay-tip">需支付:</span>
@@ -13,16 +16,11 @@
                     </span>
             </div>
         </div>
-
         <div class="JS-page-ct page-ct  position-change js-ios8-plus">
             <div class="JS-page-scorller">
                 <h2 class="p-title-bar p-pay-title-bar" style="display: block;">
                     <span class="jdpay-tip"></span>
                 </h2>
-
-
-
-
                 <ul class="pay-list">
                     <li class="list-item">
                         <a class="pay-list-link">
@@ -32,15 +30,10 @@
                         </a>
                     </li>
                 </ul>
-
             </div>
-
         </div>
-
-
         <a href="javascript:void(0);" class="btn" style="display: inline;">微信支付 ¥239.00</a>
     </div>
-
 </template>
 <script>
     import mheade from '../public/header/shop-header'

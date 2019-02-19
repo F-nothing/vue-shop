@@ -46,7 +46,6 @@
         data() {
             return {
                 count: 0,
-                isLoading: false
             }
         },
         methods: {
@@ -55,7 +54,7 @@
                     this.isRouterAlive = false
                     this.$nextTick(function () {
                         this.isRouterAlive = true
-                    })
+                    });
                     this.$toast('刷新成功');
                     this.isLoading = false;
                     this.count++;
@@ -63,10 +62,4 @@
             }
         }
     }
-
-
-
-
-
-
 </script>

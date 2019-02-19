@@ -109,7 +109,11 @@ export default {
         },
         //勾选购物车
         async Checklist(item){
-            await Checklist(item);
+            await Checklist({id:item._id,selected:item.selected});
+
+            console.log(item._id)
+
+
             this.chedfind();
             this.CheckPrice()
         },

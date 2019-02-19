@@ -56,17 +56,10 @@ const router = new Router({
 
 
                   {
-                    path:'/My/name/oo',
-                    component:resolve=>require(["@/components/My/Order/oo.vue"],resolve),
+                    path:'/My/name/Allorders',
+                    component:resolve=>require(["@/components/My/Order/Allorders.vue"],resolve),
                   },
-                  {
-                    path:'/My/name/ooo',
-                    component:resolve=>require(["@/components/My/Order/ooo.vue"],resolve),
-                  },
-                  // {
-                  //   path:'/My/name/oooo',
-                  //   component:resolve=>require(["@/components/My/Order/oooo.vue'"],resolve),
-                  // }
+
                 ]
               },
 
