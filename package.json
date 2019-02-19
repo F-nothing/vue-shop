@@ -1,7 +1,9 @@
 {
   "name": "vueshop",
-  "version": "0.1.0",
+  "version": "0.0.1",
+  "author":"kandongweb<53746237@qq.com>",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
