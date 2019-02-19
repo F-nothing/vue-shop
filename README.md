@@ -10,7 +10,7 @@
 ## 关于接口数据
 接口暂时全部都是自己服务器接口，后端系统会在以后发布的
 # 说明
-如果需要上线，跨域请用nginx的转发代理  /api 到  http://118.89.36.145:3089/v1
+如需上线，跨域请用nginx的转发代理  /api 到  http://118.89.36.145:3089/v1
 # 效果演示
 [查看demo请戳这里]("https://qr.api.cli.im/qr?data=http%253A%252F%252F118.89.36.145%252F&level=H&transparent=false&bgcolor=%23ffffff&forecolor=%23000000&blockpixel=12&marginblock=1&logourl=&size=260&kid=cliim&key=19c7d1c2612c73f64dbe4ab8ed7fb943")（请用chrome手机模式预览）
 <img src="https://qr.api.cli.im/qr?data=http%253A%252F%252F118.89.36.145%252F&level=H&transparent=false&bgcolor=%23ffffff&forecolor=%23000000&blockpixel=12&marginblock=1&logourl=&size=260&kid=cliim&key=19c7d1c2612c73f64dbe4ab8ed7fb943" width="250" height="250"/>
