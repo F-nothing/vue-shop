@@ -15,6 +15,7 @@
 [查看demo请戳这里]("https://qr.api.cli.im/qr?data=http%253A%252F%252F118.89.36.145%252F&level=H&transparent=false&bgcolor=%23ffffff&forecolor=%23000000&blockpixel=12&marginblock=1&logourl=&size=260&kid=cliim&key=19c7d1c2612c73f64dbe4ab8ed7fb943")（请用chrome手机模式预览）
 
 <img src="https://qr.api.cli.im/qr?data=http%253A%252F%252F118.89.36.145%252F&level=H&transparent=false&bgcolor=%23ffffff&forecolor=%23000000&blockpixel=12&marginblock=1&logourl=&size=260&kid=cliim&key=19c7d1c2612c73f64dbe4ab8ed7fb943" width="250" height="250"/>
+
 # 项目目标功能说明
 - [x] 注册登陆 -- 完成
 - [x] 分类页面 -- 完成
