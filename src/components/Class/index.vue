@@ -1,11 +1,17 @@
 <template>
     <div class="body_wrap">
         <div style="border-bottom: 1px solid #E5E5E5">
+<<<<<<< HEAD
             <heade titlee='热门分类'></heade>
+=======
+            <heade :titlee='title'>
+            </heade>
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
         </div>
         <div class="categoryBody" >
             <div class="rootList">
                 <div>
+<<<<<<< HEAD
                     <ul v-for="item in classData" :key="item.index">
                         <li @click="classlist(item)">{{item.cat_name}}</li>
                     </ul>
@@ -25,6 +31,31 @@
                 </div>
             </div>
         </div>
+=======
+                    <ul v-for="item in data" :key="item.index">
+                        <li @click="list(item)">{{item.cat_name}}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="fr" >
+                    <div class="jd-category-third-promotion">
+                        <div class="tp-class-list">
+                            <h4>热门分类</h4>
+
+                            <ul>
+                                <li @click="no(opp)"   v-for="opp in op" :key="opp.index">
+                                        <img :src="opp.icon">
+
+                                    <sapn>{{opp.cat_name}}</sapn>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <Loading v-if="LOADING"></Loading>
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
         <Navbar></Navbar>
     </div>
 </template>
@@ -43,6 +74,7 @@
         },
         data(){
             return{
+<<<<<<< HEAD
                 classData:[
                     {
                         "cat_name":"推荐分类",
@@ -68,6 +100,12 @@
                     {"cat_name":"手机数码"},
                 ],//分类数据
                 SubclassData:[],//当前分类子类
+=======
+                data:[],
+                op:[],
+                title:'热门分类',
+                item:''
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
             }
         },
         computed:{
@@ -76,6 +114,7 @@
             ])
         },
         mounted(){
+<<<<<<< HEAD
             this.classlist(this.classData[0])
         },
         methods:{
@@ -89,6 +128,22 @@
             async initData(){
                 const res = await Classlist();
                 let cloneData = JSON.parse(JSON.stringify(res.message));
+=======
+            this.Classlist()
+        },
+        methods:{
+            list(item){
+               this.op= item.childList
+            },
+
+            //跳转 父id商品列表
+            no(opp){
+                this.$router.push({path: '/user',query:{id:opp.value} });
+            },
+            async Classlist(){
+                const res = await Classlist();
+                let cloneData = JSON.parse(JSON.stringify(res.message));    // 对源数据深度克隆
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                 let tree = cloneData.filter((father)=>{
                     let branchArr = cloneData.filter((child)=>{
                         return father.value == child.parent_id
@@ -99,15 +154,24 @@
                     }
                     return father.parent_id == 0;
                 });
+<<<<<<< HEAD
                 this.classData = tree;
                 this.SubclassData = this.classData[0].childList
+=======
+                this.data = tree;
+                //沉默选中第一个
+                this.op = this.data[0].childList
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
             }
         }
     }
 </script>
 <style lang="scss" scoped>
     @import "../../style/index";
+<<<<<<< HEAD
     @import "../../../public/INDEX.css";
+=======
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
     .body_wrap {
         background-color: #FFFFFF;
         height: 100vh;
@@ -121,9 +185,12 @@
             .rootList{
                 width: vw(80);
                 padding: 0 vw(10);
+<<<<<<< HEAD
                 height:710px;
                 overflow: hidden;
                 background-color: #f9f9f9;
+=======
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                 li {
                     width: vw(80);
                     @include line(vw(46),vw(46));
@@ -138,22 +205,31 @@
                         margin: vw(19) vw(7) 0;
                         overflow:hidden;
                         h4{
+<<<<<<< HEAD
                             font-size: vw(12);
                             color: #333;
                             font-family: "PF";
+=======
+                            font-size: vw(14);
+                            color: #333;
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                         }
                         ul{
                             padding: vw(7) vw(10) 0;
                             overflow: hidden;
                             li{
                                 width: 33%;
+<<<<<<< HEAD
                                 padding: vw(10) 0;
+=======
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                                 float: left;
                                 text-align: center;
                                 img{
                                     margin: 0 auto;
                                     width: vw(70);
                                     height: vw(70);
+<<<<<<< HEAD
                                     padding-bottom: 10px;
                                 }
                                 span{
@@ -161,6 +237,14 @@
                                     display: block;
                                     color: #333;
                                     font-weight: bold;
+=======
+                                }
+                                sapn{
+                                    font-size: vw(12);
+                                    display: block;
+                                    height: 35px;
+                                    color: #333;
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                                 }
                             }
                         }

@@ -1,5 +1,6 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
+<<<<<<< HEAD
 import actions from './action'
 import {setStore} from '../config/mUtils'
 
@@ -45,3 +46,41 @@ export default new Vuex.Store({
     state,
     mutations
 })
+=======
+Vue.use(Vuex)
+
+
+
+const store = new Vuex.Store({
+    state:{
+        count:0,
+
+        token:sessionStorage.getItem("login") ? 'test' : '登陆/注册',
+        is:false,
+        LOADING: false,
+
+
+        username: '',//用户id
+        login: true,//是否登录
+        userInfo: null, //用户信息
+
+
+
+    },
+
+    mutations:{
+        SHOWLoading(state){
+            state.LOADING = true
+        },
+        HIDELoading (state) {
+            state.LOADING = false
+        }
+    },
+
+
+});
+
+
+
+export default store
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6

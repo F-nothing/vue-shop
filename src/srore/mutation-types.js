@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 export const RECORD_USERINFO = 'RECORD_USERINFO'
 export const SHOWLOADING = 'SHOWLOADING'
 export const HIDELOADING = 'HIDELOADING'
 export const GET_USERINFO = 'GET_USERINFO'
+=======
+export const RETSET_NAME = 'RETSET_NAME'
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6

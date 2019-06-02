@@ -1,14 +1,23 @@
 <template>
   <div class="my">
+<<<<<<< HEAD
     <div class="DLinearLayout">
       <div class="user_info">
         <div>
           <div class="avatar_wrap">
             <img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1557665478&di=d86b74c6daab46b406cc879054c94f3d&src=http://images.liqucn.com/img/h21/h84/img_localize_cd589ee82a2e7fc3284faff7b2e94c43_400x400.png">
+=======
+    <!-- 头部header -->
+    <div class="DLinearLayout">
+      <div class="user_info">
+          <div class="avatar_wrap">
+            <img src="https://img11.360buyimg.com/jdphoto/s120x120_jfs/t21160/90/706848746/2813/d1060df5/5b163ef9N4a3d7aa6.png">
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
           </div>
           <div class="personal_wrap">
             <router-link to="/My/name" tag="div">
               <div class="namediv"><span class="name">{{name}}</span></div>
+<<<<<<< HEAD
               <span class="signature">我的个性签名</span>
             </router-link>
 
@@ -50,6 +59,17 @@
 
         </div>
         <div class="top_line_box" >
+=======
+              <!--<span class="signature">生活要有平质感</span>-->
+            </router-link>
+          </div>
+      </div>
+    </div>
+    <!--收货地址-->
+    <div class="xlist_group my_cell">
+      <div class="rel_container rel_container_has_logis">
+        <div class="top_line_box">
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
           <router-link tag="div" to="/My/name"  class="my_order_entrance">
             <svg t="1549679999987" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1848" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20"><defs></defs><path d="M672.215 98.99c-159.136 0-288.14 57.263-288.14 127.9h-0.357v97.997a290.803 290.803 0 0 0-31.683-1.744c-158.959 0-287.822 128.862-287.822 287.822 0 158.959 128.862 287.822 287.822 287.822 33.389 0 65.441-5.705 95.259-16.16 52.805 29.237 133.932 47.962 224.922 47.962 154.518 0 280.617-53.989 287.805-121.787h0.335V226.89c-0.002-70.637-129.006-127.9-288.141-127.9z m0 63.567c119.171 0 215.777 28.803 215.777 64.333s-96.606 64.333-215.777 64.333c-119.172 0-215.779-28.803-215.779-64.333s96.607-64.333 215.779-64.333zM447.898 307.159c52.82 29.047 133.672 47.631 224.317 47.631 90.439 0 171.132-18.5 223.959-47.435v115.504c-24.537 29.816-109.664 60.523-223.959 60.523-22.126 0-43.453-1.007-63.55-2.852-33.292-65.373-90.832-116.316-160.767-141.015v-32.356zM632.43 545.735a649.914 649.914 0 0 0 39.785 1.215c90.439 0 171.132-18.501 223.959-47.435v115.566c-24.537 29.816-109.664 60.523-223.959 60.523-13.466 0-26.634-0.377-39.416-1.08a288.797 288.797 0 0 0 7.057-63.561c-0.001-22.434-2.57-44.269-7.426-65.228z m-504.206 65.23c0-123.607 100.203-223.81 223.81-223.81s223.81 100.203 223.81 223.81-100.203 223.811-223.81 223.811-223.81-100.204-223.81-223.811z m543.991 256.056c-61.226 0-116.485-7.604-155.757-19.816 40.332-28.125 73.131-66.301 94.744-110.913 19.668 1.883 40.077 2.881 61.013 2.881 90.439 0 171.132-18.501 223.959-47.435v114.76c-24.537 29.816-109.664 60.523-223.959 60.523z" p-id="1849"></path><path d="M448.827 608.68c17.688 0 32.027-14.34 32.027-32.028s-14.34-32.027-32.027-32.027h-17.316l15.964-15.964c12.508-12.508 12.508-32.786 0-45.294-12.508-12.508-32.787-12.508-45.295 0l-49.406 49.405-49.405-49.405c-12.508-12.508-32.787-12.508-45.295 0-12.507 12.508-12.508 32.786 0 45.294l15.964 15.964h-17.11c-17.689 0-32.028 14.339-32.028 32.028 0 17.688 14.339 32.027 32.028 32.027h63.133v30.516h-63.133c-17.689 0-32.028 14.339-32.028 32.028 0 17.688 14.339 32.027 32.028 32.027h63.133v32.722c0 17.688 14.339 32.027 32.028 32.027s32.028-14.34 32.028-32.027v-32.722h64.709c17.688 0 32.027-14.34 32.027-32.028s-14.34-32.027-32.027-32.027h-64.709V608.68h64.71z" p-id="1850"></path></svg>
             <div class="entrance_text">待付款</div>
@@ -72,7 +92,15 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
     <Navba></Navba>
+=======
+    <!--店铺收藏 足迹-->
+    <div class="xlist_group my_cell">
+    </div>
+    <Navba></Navba>
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
   </div>
 </template>
 <script>
@@ -87,6 +115,10 @@
     data(){
       return{
         name:'登陆/注册',
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
       }
     },
     mounted(){
@@ -94,11 +126,18 @@
         this.name = sessionStorage.getItem("username")
       }
     }
+<<<<<<< HEAD
+=======
+
+    //获取当前登陆信息
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
   }
 </script>
 <style lang='scss' scoped>
   @import "../../style/mimin";
   .DLinearLayout{
+<<<<<<< HEAD
     background-color: #409EFF;
     padding: 20px;
     padding-bottom: 0;
@@ -109,22 +148,38 @@
       background-color: #ffffff;
       box-shadow: 1px 4px 13px 2px #e0d3d3ad;
       top: 50px;
+=======
+    height: 100px;
+    background-color: #3190e8;
+    color: white;
+    padding:0 20px;
+    .user_info{
+      height: 100px;
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
       position: relative;
       width: 100%;
       .avatar_wrap{
         position: absolute;
         left: 10px;
+<<<<<<< HEAD
         top:10%;
         img{
           width: 62px;
           height: 62px;
           border-radius: 50px;
+=======
+        top:20%;
+        img{
+          width: 62px;
+          height: 62px;
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
         }
       }
     }
     .personal_wrap{
       position: absolute;
       left: 90px;
+<<<<<<< HEAD
       top: 10%;
       height: 31px;
       margin-top: 5px;
@@ -134,6 +189,17 @@
         font-weight: 700;
         padding-bottom: 10px;
         color: black;
+=======
+      top: 20%;
+      height: 62px;
+      margin-top: 5px;
+      .namediv{
+        height: 30px;
+        line-height: 62px ;
+        font-size: 22px;
+        font-weight: 700;
+        padding-bottom: 10px;
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
       }
       .signature{
         color:#666666
@@ -145,11 +211,17 @@
     background: #fff;
     margin: 10px 8px;
     border-radius: 10px;
+<<<<<<< HEAD
 
 
     .rel_container{
       .top_line_box{
         padding:15px 0;
+=======
+    .rel_container{
+      .top_line_box{
+        padding: 10px 0;
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
         position: relative;
         @include flex();
         .my_order_entrance{

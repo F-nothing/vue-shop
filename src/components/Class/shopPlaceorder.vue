@@ -2,12 +2,22 @@
     <!--提交订单-->
     <div class="wx_wrap">
         <!--头部导航-->
+<<<<<<< HEAD
         <mheade :titlee='title'></mheade>
+=======
+        <div>
+            <mheade :titlee='title'></mheade>
+        </div>
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
         <!--收货地址-->
         <div class="address_defalut_wrap" @click="addres()">
             <div class="address_defalut_border">
                 <li>
+<<<<<<< HEAD
                     <strong style="font-size: 18px">{{this.list.consignee}} {{this.list.mobile}}</strong>
+=======
+                    <strong>{{this.list.consignee}} {{this.list.mobile}}</strong>
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                 </li>
                 <li>{{this.list.province + this.list.city + this.list.district +this.list.address}}</li>
             </div>
@@ -28,7 +38,11 @@
                             <img class="photo" :src="item.goods_id.shop_img">
                             <div class="fn">                                                                                                                        <strong>{{item.goods_id.shop_name}}</strong>
                             </div>
+<<<<<<< HEAD
                             <p class="sku_coll">{{item.name}}</p>
+=======
+                            <p class="sku_coll">灰色海绵肩带</p>
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                             <p class="sku_price">¥<span>{{item.goods_id.checked}}</span></p>
 
 
@@ -77,7 +91,12 @@
         </div>
         <!--底部-->
         <div class="qq_footer" style="">
+<<<<<<< HEAD
             <div class="jd_logo"></div>
+=======
+            <div class="jd_logo" id="jdBtmLogo"></div>
+            <!--<div class="qq_info">正品保障，极速发货。</div>-->
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
         </div>
     </div>
 </template>
@@ -93,6 +112,7 @@
         data(){
             return{
                 title:'填写订单',
+<<<<<<< HEAD
                 list:{
                     "consignee":"王炸",
                     "mobile":"1767***400",
@@ -114,6 +134,10 @@
                     "consignee":"王炸",
                     "consignee":"王炸",
                 }],  //待结算的商品,
+=======
+                list: [],
+                data:[],  //待结算的商品,
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                 datalist:[],
                 sum:'',    //当前价值
                 cart_id:[]
@@ -166,8 +190,11 @@
     }
         .address_defalut_wrap
             position relative
+<<<<<<< HEAD
             background url(../../../public/img/address.png) -7px bottom repeat-x;
             background-size: 30px 5px;
+=======
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
             .address_defalut_border
                 padding: 12px 10px;
         .venderOrderList
@@ -292,12 +319,20 @@
         }
         .qq_footer {
             margin: 25px 0 75px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
             .jd_logo {
                 display: block;
                 width: 100px;
                 height: 20px;
                 margin: 0 auto;
+<<<<<<< HEAD
                 background-image  url('../../../public/img/download.png') no-repeat
+=======
+                background url('../../images/logodownload.png') no-repeat
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                 background-size: 100%;
             }
         }

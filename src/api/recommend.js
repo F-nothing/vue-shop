@@ -1,5 +1,11 @@
 import jsonp from '../config/jsonp'
+<<<<<<< HEAD
 import {commonParams,opitons,getfindshop,secondkill} from "./config";
+=======
+import {commonParams,opitons,getfindshop,Zepto,secondkill} from "./config";
+
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
 /**
  * QQ音乐轮播图
  */
@@ -20,6 +26,20 @@ export function getSug(p) {
 
     return jsonp(url,data)
 }
+<<<<<<< HEAD
+=======
+
+/**
+ * JD商品推荐
+ */
+
+export function getZeptoo() {
+    const url = 'https://wqcoss.jd.com/mcoss/reclike/getrecinfo';
+    const data =Object.assign({},Zepto,);
+    return jsonp(url,data)
+}
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
 /**
  * JD秒杀商品推荐
  */

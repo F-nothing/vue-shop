@@ -1,9 +1,20 @@
 <template>
     <div class="box">
         <div id="spinner" class="spinner">
+<<<<<<< HEAD
             <van-loading color="white" />
         </div>
     </div>
+=======
+            <!--<div class="bounce1"></div>-->
+            <!--<div class="bounce2"></div>-->
+            <!--<div class="bounce3"></div>-->
+        <van-loading color="white" />
+        </div>
+
+    </div>
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
 </template>
 <script>
     export default {
@@ -35,6 +46,12 @@
         margin: 0 auto;
     }
     .van-loading{
+<<<<<<< HEAD
         width: 100%;
     }
+=======
+        margin: 0 auto;
+    }
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
 </style>

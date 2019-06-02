@@ -1,11 +1,20 @@
 <template>
     <div class="Spilk">
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
         <!--秒杀-->
         <div class="floor-container">
             <div class="sec_kill_floor">
                 <div class="title_wrap">
                     <a class="seckill-left-link j_more_sec_link">
+<<<<<<< HEAD
                         <strong  class="seckill-tit-txt">秒杀</strong>
+=======
+                        <strong  class="seckill-tit-txt">京东秒杀</strong>
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                         <strong  class="seckill-nth">22点场</strong>
                     </a>
                     <a class="seckill-more-link">

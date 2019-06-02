@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <router-view></router-view>
 </template>
 <script>
@@ -22,4 +23,17 @@
 </script>
 <style>
     @import "../public/css/reset.css";
+=======
+    <router-view ></router-view>
+</template>
+<script>
+
+export default {
+  name: "app",
+};
+</script>
+<style>
+    @import "../public/css/reset.css";
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
 </style>

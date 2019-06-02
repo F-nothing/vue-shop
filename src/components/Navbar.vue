@@ -24,7 +24,10 @@
                 {title: '首页',  iconfont: 'icon-home',to:'/',class:false,},
                 {title: '分类',  iconfont: 'icon-more',to:'/Class',class:false},
                 {title: '购物车', iconfont: 'icon-cart_light-copy-copy',to:'/Chea',class:false},
+<<<<<<< HEAD
                 // {title: '发布',  iconfont: 'icon-shanchu-copy',to:'/Release',class:false},
+=======
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                 {title: '我的',  iconfont: 'icon-my_light',to:'/My',class:false},
             ],
          }
@@ -48,9 +51,12 @@
               case this.nav[3].to:
                   this.$store.state.Navbar = 3;
                   break;
+<<<<<<< HEAD
               case this.nav[4].to:
                   this.$store.state.Navbar = 4;
                   break;
+=======
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
           }
           var isSelece = this.$store.state.Navbar;
           this.nav[isSelece].class = true
@@ -63,6 +69,7 @@
   }
 </script>
 <style lang="scss" scoped>
+<<<<<<< HEAD
     @import "./Home/Sub/font_882041_sxq9914r80k.css";
     @import url(//at.alicdn.com/t/font_882041_5owwv3cz4q.css);
 
@@ -81,19 +88,44 @@
         font-size:vw(12);
         padding-top: vw(5);
         box-shadow: 0 0 10px 0 hsla(0,6%,58%,.6);
+=======
+    @import url(//at.alicdn.com/t/font_882041_sxq9914r80k.css);
+    @import "../style/mimin";
+    .Navbar{
+        box-sizing: border-box;
+        position: fixed;
+        display: flex;
+        text-align: center;
+        left:0;
+        bottom: 0;
+        width: 100%;
+        z-index: 100;
+        font-size:vw(12);
+        background-color:#fcfcfc;
+        padding:vw(5) 0;
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
         .tab{
             color:#0a0d20;
             width: 25%;
             display: block;
             .iconfont{
+<<<<<<< HEAD
                 font-size:vw(20);
+=======
+                font-size:vw(24);
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                 height:vw(25);
                 line-height:vw(25);
                 font-weight:700
             }
             .text{
+<<<<<<< HEAD
                 font-size:vw(14);
                 transform: scale(0.8);
+=======
+                font-size:vw(12);
+                transform: scale(0.83333333);
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
             }
         }
         .item-cn-active {

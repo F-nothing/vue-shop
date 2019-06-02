@@ -1,4 +1,9 @@
 import originJSONP from 'jsonp'
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
 export default function jsonp(url,data,option) {
     url += (url.indexOf('?')<0 ? '?' : '&') +param(data)
     return new Promise((resolve,reject)=>{
@@ -11,6 +16,12 @@ export default function jsonp(url,data,option) {
         })
     })
 }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
 export function param(data) {
     let url = '';
     for(var k in data){

@@ -60,6 +60,10 @@
             </div>
 
         </div>
+<<<<<<< HEAD
+=======
+        <!--<Recommend></Recommend>-->
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
     </div>
 </template>
 <script>
@@ -78,6 +82,7 @@ export default {
             is:false,
             title:'购物车',
             shopdata:[],//购物车原始数据
+<<<<<<< HEAD
             Pricedata:{ //购物车当前价格
                 Price:''
             },
@@ -87,16 +92,52 @@ export default {
     },
     mounted(){
         this.chedfind()
+=======
+
+            Pricedata:{ //购物车当前价格
+                Price:''
+            },
+            data:sessionStorage.getItem("login"),
+            selected : null
+        }
+    },
+    created:function () {
+        if(this.data){
+            this.chedfind();
+            this.CheckPrice()
+        }
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
     },
     methods:{
         //获取购物车数据(判断是否登陆,如果没登陆获取本地存储的数据)
         async chedfind(){
+<<<<<<< HEAD
             this.$api.article.articleDetail().then(res=> {
             })
         },
         //勾选购物车
         async Checklist(item){
             await Checklist({id:item._id,selected:item.selected})
+=======
+            const data =  await chedfind();
+            this.shopdata = data.docs;
+            //循环当前是否有  未选中的selected=1  有设置为全选
+            for(var i = 0;i<this.shopdata.length;i++){
+                if(this.shopdata[i].selected == 0){
+                    this.selected = 0
+                }else {
+                    this.selected = 1
+                }
+            }
+        },
+        //勾选购物车
+        async Checklist(item){
+            await Checklist({id:item._id,selected:item.selected});
+
+            console.log(item._id)
+
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
             this.chedfind();
             this.CheckPrice()
         },

@@ -34,7 +34,10 @@ export default {
 @import url(//at.alicdn.com/t/font_908836_nu64hp9k9ug.css);
 @import "../../../style/mimin";
 @import "../../../style/index";
+<<<<<<< HEAD
 @import "../../../../public/INDEX.css";
+=======
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
     .m_header_bar{
         width: 100%;
         display: flex;
@@ -43,6 +46,10 @@ export default {
         font-size: vw(14);
         .m_header_{
             display: block;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
             @include line(vw(45),vw(45),vw(28));
             text-align: center;
             svg{
@@ -50,14 +57,21 @@ export default {
                 height: vw(20);
             }
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
         .m_header_bar_title{
             @include line(vw(45),vw(45),vw(18));
             text-align: center;
             @include text_hidden();
             flex: 1;
+<<<<<<< HEAD
             i{
                 font-family:PF;
             }
+=======
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
         }
     }
 </style>

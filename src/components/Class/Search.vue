@@ -1,5 +1,6 @@
 <template>
     <div style="background-color: #ffffff;height: 100vh">
+<<<<<<< HEAD
 
 
 
@@ -18,6 +19,9 @@
 
 
 
+=======
+        <van-search background="red"   placeholder="请输入搜索关键词" v-model="value" />
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
         <div class="suggest-container">
             <ul class="suggest-sug">
                 <li @click="gerRouter(item)"  v-for="item in items" :key="item.index" v-if="item.key" style="
@@ -38,7 +42,11 @@
                     padding-left: 10px;
                     padding-right: 10px;
                     border-radius: 3px;
+<<<<<<< HEAD
                     margin-right: 10px;" v-for="items in item.tag" :key="items.id">{{items.tsh}}</span>
+=======
+                    margin-right: 10px;" v-for="items in item.tag">{{items.tsh}}</span>
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                 </li>
             </ul>
         </div>
@@ -57,7 +65,11 @@
                 </div>
 
                 <div id="msHistoryTags" class="recent-search-tags">
+<<<<<<< HEAD
                     <span style="font-weight:700;display: inline-block;padding: 0 10px;background-color: #f0f2f5;height: 28px;line-height: 28px;text-align: center;border-radius: 5px">
+=======
+                    <span style="display: inline-block;padding: 0 10px;background-color: #f0f2f5;height: 28px;line-height: 28px;text-align: center;border-radius: 20px">
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
                         <a style="color: black;" href="javascript:void(0);">
                             <i class="hot-search-move hot-search-red">直饮水龙头</i>
                         </a>
@@ -92,10 +104,31 @@
                         this.items = res;}
                 });
             },
+<<<<<<< HEAD
             gerRouter(){
                 var data = window.localStorage.getItem('searchhistory');
                 window.localStorage.setItem('searchhistory',data)
             }
+=======
+
+
+            gerRouter(item){
+                console.log(item)
+
+                var data = window.localStorage.getItem('searchhistory');
+
+
+
+
+                window.localStorage.setItem('searchhistory',data)
+
+
+
+            }
+
+
+
+>>>>>>> 5c238d8372868820917fb18d9a4c601617d4c4f6
         }
     }
 </script>
