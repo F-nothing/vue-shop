@@ -1,0 +1,21 @@
+@mixin bis($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+};
+
+@mixin text_hidden(){
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+};
+
+@mixin flex(){
+  display: flex;
+  display: -webkit-flex;
+  display: -webkit-box;
+};
+
+@function vw($px) {
+  @return ($px / 375) * 100vw;
+}

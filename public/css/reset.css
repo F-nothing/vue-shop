@@ -1,0 +1,45 @@
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button,
+form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup,
+menu, nav, section {margin: 0;padding: 0;}
+body {
+    background-color: #ffffff;
+    margin: 0 auto !important;
+    font: 400 14px/1.3 "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+e , i{
+    font-style: normal;
+}
+
+li{
+    list-style:none;
+
+}
+
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+
+img{
+    width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    display: block;
+    -ms-interpolation-mode: bicubic;/*为了照顾ie图片缩放失真*/
+}
+
+
